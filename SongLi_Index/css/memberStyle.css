@@ -1,0 +1,372 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* 按鈕樣式 */
+.calendarbtn {
+    color: #FCF8F3;
+    background-color: #A0937D;
+    border-radius: 20%;
+    margin: 3px;
+    border: none;
+
+}
+
+
+/* =============================================== */
+/* ================sidebar側邊攔================== */
+/* =============================================== */
+
+
+/* sidebar按鈕前面的小icon */
+.tab img {
+    width: 25px;
+    margin: 8px;
+}
+
+/* sidebar側邊攔 */
+.tab {
+    width: 60%;
+    margin-top: 20%;
+}
+
+/* sidebar側邊攔的按鈕 */
+.tab button {
+    display: block;
+    background-color: #E0CCBE;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* sidebar側邊攔的按鈕hover樣式 */
+.tab button:hover {
+    background-color: #d2a280;
+}
+
+/* sidebar側邊欄的分頁 */
+.tabcontent {
+    display: none;
+    padding: 0px 12px;
+    width: 70%;
+    margin-top: 5%;
+    align-items: center;
+}
+
+/* sidebar側邊欄的分頁(動作) */
+.tabcontent.active {
+    display: block;
+}
+
+/* 各頁標題旁的小icon */
+.tabcontent h3 img {
+    width: 25px;
+    margin: 8px;
+}
+
+/* =============================================== */
+/* ==============會員的月曆預定備註================ */
+/* =============================================== */
+
+
+
+/* 加入日期備註的框框 */
+#controls {
+    display: none;
+    /* padding: 10px; */
+    /* width: 60%; */
+    position: fixed;
+    z-index: 1031;
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* 改成vh */
+    height: 100vh;
+    /* overflow: auto; */
+    background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+/* 加入日期備註的(裡面的)框框 */
+#controlss {
+    display: flex;
+    /*放這邊*/
+    justify-content: space-evenly;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    position: relative;
+    /* 調整位置 */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* 跳出的輸入備註框 */
+#whoInput {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    height: 50px;
+    margin-right: 3%;
+}
+
+/* 月曆 */
+#calendarDate {
+    height: 400px;
+}
+
+/* 預約訂單的頁面 */
+#dateInformation {
+    width: 100%;
+}
+
+
+/* 新增的條列行事曆 */
+#eventList {
+    /* margin-top: 20px; */
+    width: 100%;
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* 新增的條列行事曆 ->h3標題 */
+#eventList h3 {
+    font-size: 25px;
+    text-align: center;
+    background-color: #E0CCBE;
+    border-radius: 2%;
+    font-weight: 600;
+
+}
+
+
+/* 加入日期備註按鈕 */
+#addWhoBtn {
+    height: 50%;
+    margin-top: 5%;
+    /* border: 1px solid #888; */
+    border: none;
+    margin-left: 10px;
+}
+
+/* 月曆上=>年、月的字樣式 */
+#myearmonth {
+    display: flex;
+    margin: 10px;
+    margin-left: 38%;
+}
+
+/* 關掉的XX按鈕 */
+.close {
+    position: absolute;
+    right: 1%;
+    top: 0px;
+    color: #aaa;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* 月曆日期的hover和手指 */
+.tdHover:hover {
+    cursor: pointer;
+    background-color: #d2a280;
+}
+
+
+
+/* 控制月曆table表格大小固定 */
+.calendar,
+table {
+    table-layout: fixed;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+/* 月曆裡星期幾的背景 */
+.ordertr {
+    background-color: #E0CCBE;
+}
+
+/* 月曆裡星期幾的置中樣式 */
+.calendarth {
+    text-align: center;
+}
+
+
+
+/* 月曆上的星星 */
+.starList {
+    /* color: #7a7162; */
+    color: #698474;
+}
+
+/* 月曆當日的顯色提示 */
+.today {
+    background-color: #B6C7AA;
+    border-radius: 20%;
+}
+
+/* 月曆上=>左邊的箭頭按鈕 */
+.myearmonthbtn-1 {
+    margin-right: 10px;
+    border: none;
+}
+
+/* 月曆上=>右邊的箭頭按鈕 */
+.myearmonthbtn-2 {
+    margin-left: 10px;
+    border: none;
+}
+
+/* =============================================== */
+/* ================會員的基本資料================== */
+/* =============================================== */
+
+
+
+/* 會員資料更新的按鈕 */
+#mupdata {
+    height: 50%;
+    margin-top: 5%;
+    /* border: 1px solid #888; */
+    border: none;
+    margin-left: 10px;
+}
+
+
+
+/* 會員資料的字體大小 */
+#memberData {
+    font-size: 17px;
+}
+
+/* 會員資料的呈現樣式 */
+#memberData label {
+    margin: 2%;
+}
+
+#memberData .mlabel-1 {
+    margin-right: 58px;
+}
+
+#memberData .mlabel-2 {
+    margin-right: 25px;
+}
+
+#memberData .mlabel-3 {
+    margin-left: 105px;
+    margin-right: 25px;
+}
+
+#memberData .mlabel-4 {
+    margin: 10px;
+}
+
+
+
+
+/* =============================================== */
+/* ================會員的訂單樣式================== */
+/* =============================================== */
+
+/* 顯示沒有訂單的外層 */
+#orderDiv {
+    background-color: #aba890;
+    padding: 10px;
+    height: 150px;
+    width: 450px;
+    margin-left: 11%;
+}
+
+/* 顯示沒有訂單的中層(虛線) */
+#userNoorder {
+    border: dashed #FCF8F3;
+    height: 130px;
+}
+
+/* 顯示沒有訂單的內層(字) */
+#orderH5 {
+    margin-top: 48px;
+    margin-left: 152px;
+}
+
+
+/* .eventItem {
+    cursor: pointer;
+    margin-bottom: 5px;
+    width: 60%;
+} */
+
+/* .eventItem:hover {
+    text-decoration: underline; 
+ background-color: #d1d1d1;
+
+ }  */
+
+/* .editevent {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+} */
+
+/* .change-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+} */
+
+/* 關掉的XX按鈕
+.close {
+    position: absolute;
+    right: 1%;
+    top: 0px;
+    color: #aaa;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+} */
+
+
+/* .btnData {
+    display: none;
+}
+
+.btnData.active {
+    display: block;
+} */

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>關於我們 | Song-Li</title>
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="../css/aboutNnews.css" />
+    <link rel="stylesheet" href="../css/cartIcon.css" />
+    <link rel="stylesheet" href="../css/navUD.css" />
+    <!-- jQ -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
+
+  <body>
+    <header class="fixed-top">
+      <nav class="navbar navbar-expand-lg navbg clearfix">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html"
+            ><img src="../image/logo大專_上色.png" alt="" class="logo"
+          /></a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul
+              class="navbar-nav me-auto mb-2 mb-lg-0"
+              style="margin-left: 180px"
+            >
+              <li class="nav-item me-5 font_T_Bolder">
+                <a class="nav-link navli" href="./product/product.html">商品</a>
+              </li>
+              <li class="nav-item me-5 font_T_Bolder">
+                <a class="nav-link navli" href="./news.html">公告</a>
+              </li>
+              <li class="nav-item me-5 font_T_Bolder">
+                <a class="nav-link navli" href="./about.html">關於我們</a>
+              </li>
+              <li class="nav-item me-5 font_T_Bolder">
+                <a class="nav-link navli" href="./member.html">會員中心</a>
+              </li>
+            </ul>
+            <div class="float-end">
+              <h5 class="userName font_T_Bolder"></h5>
+            </div>
+            <div class="float-end navbtnSP">
+              <!-- <a href="../html/product/product.html#productList2" class="navbtn font_T_Bolder mx-2">訂閱</a>                        <button class="navbtn font_T_Bolder mx-2" id="loginRegBtn" data-bs-toggle="modal" -->
+              <button
+                class="navbtn font_T_Bolder mx-2"
+                id="loginRegBtn"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                登入/註冊
+              </button>
+            </div>
+            <div class="icon-cart float-end position-relative">
+              <a href="./cart/cart.html" class="btn font_T_Bolder">
+                <i class="bi bi-cart3 fs-2"></i>
+                <span id="cartCount"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div
+      class="h3 text-center text-decoration-underline p-4 firstDiv font_T_Normal"
+    >
+      關 於 我 們 About Us
+    </div>
+    <div class="container w-80 font_C_Light mySpace">
+      <div class="p-3 position-relative">
+        <div id="carouselBtn" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner mb-5">
+            <div class="carousel-item active">
+              <div
+                class="d-flex flex-row justify-content-center container w-90 h-400"
+              >
+                <img
+                  class="position-relative opacity-90 w-40"
+                  src="../image/img_1.jpg"
+                  alt="First slide"
+                />
+                <div class="d-flex flex-column justify-content-center p-3 w-60">
+                  <h5>使命</h5>
+                  <p>在忙碌的生活中，您是否常常忘記重要的生日或節日？</p>
+                  <p>
+                    頌裏提供貼心的會員月曆設定，以 Email
+                    方式提醒顧客提早準備禮物。
+                  </p>
+                  <p>
+                    我們提供多樣花卉、客製卡片內容以及小物件等商品，還有精美的套餐供您選擇。
+                  </p>
+                  <p>
+                    如果您難以決定，可以嘗試我們的「推薦購買問答」，通過引導式問題進行分類，逐步推薦最適合的商品。
+                  </p>
+                  <p>
+                    我們希望讓準備禮物變得簡單且不再令人煩惱，幫助您選擇最適合的禮物，讓愛與關懷傳遞到對方的心裡。
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div
+                class="d-flex flex-row justify-content-center container w-90 h-400"
+              >
+                <div class="d-flex flex-column justify-content-center p-3 w-60">
+                  <h5>定位</h5>
+                  <p>
+                    我們理解職場人士面臨著忙碌的工作日程和複雜的人際關係管理，因此除了提供精美的花禮外，我們設有線上客服團隊，提供顧客簡便的諮詢與購買體驗。
+                  </p>
+                  <p>
+                    職場人士維繫的重要關係主要包括親密關係、職場關係、家庭關係，以及隨著生活美學提升而日益重要的自我關係。
+                  </p>
+                  <p>
+                    我們的服務旨在全方位滿足這些需求，以情感傳遞與便捷體驗為核心，幫助職場人士在各種場景，用體面的方式傳遞訊息。
+                  </p>
+                  <p>
+                    我們提供精美的節日花禮服務，使顧客能夠在各種節日或重要時刻，如情人節、母親節、生日/紀念日，透過節日花禮表達祝福和感謝，以維繫親密關係、職場關係和家庭關係。
+                  </p>
+                  <p>
+                    在自我關係方面，可以通過訂閱週花服務美化自己的生活空間，這不僅有助於緩解工作壓力，提升生活質感，也能夠為忙碌的職場生活中，找到一些屬於自己的寧靜。
+                  </p>
+                </div>
+                <img
+                  class="position-relative opacity-90 w-40"
+                  src="../image/img_2.jpg"
+                  alt="First slide"
+                />
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div
+                class="d-flex flex-row justify-content-center container w-90 h-400"
+              >
+                <img
+                  class="position-relative opacity-90 w-40"
+                  src="../image/img_3.jpg"
+                  alt="First slide"
+                />
+                <div class="d-flex flex-column justify-content-center p-3 w-60">
+                  <h5>為什麼叫「頌裏」？</h5>
+                  <p>「頌裏 SONG-LI」，取自諧音「送禮」、「送你」。</p>
+                  <p>
+                    選擇「頌裏」作為我們的名字，<br />
+                    希望每一位顧客收到禮物都能感受到送禮的人將滿滿心意送到你心裡。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-indicators mb-50">
+            <button
+              type="button"
+              data-bs-target="#carouselBtn"
+              data-bs-slide-to="0"
+              class="active carouselDot"
+              aria-current="true"
+              aria-label="Slide 1"
+            >
+              使 命
+            </button>
+            <button
+              type="button"
+              data-bs-target="#carouselBtn"
+              data-bs-slide-to="1"
+              class="carouselDot"
+              aria-label="Slide 2"
+            >
+              定 位
+            </button>
+            <button
+              type="button"
+              data-bs-target="#carouselBtn"
+              data-bs-slide-to="2"
+              class="carouselDot"
+              aria-label="Slide 3"
+            >
+              頌 裏
+            </button>
+          </div>
+          <button
+            id="prev"
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselBtn"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon"
+              ><i class="bi bi-chevron-double-left"></i
+            ></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            id="next"
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselBtn"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon"
+              ><i class="bi bi-chevron-double-right"></i
+            ></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <br />
+      <hr />
+      <br />
+      <!-- 改！！！ -->
+      <div
+        class="d-flex flex-column justify-content-start align-items-center mt-5"
+      >
+        <form
+          id="contactForm"
+          method="post"
+          class="mb-5 overflow-hidden"
+        ></form>
+        <br />
+      </div>
+    </div>
+
+    <footer class="container-fluid clearfix">
+      <div class="footerDown justify-content-evenly">
+        <div class="float-start">
+          <p class="footerTitle font_T_Bold">店鋪資訊</p>
+          <p class="indexInfo font_C_Normal">
+            電話：0923265860<br />
+            Email：bigzhuan0711@gmail.com<br />
+            時間：09:00~18:00
+          </p>
+        </div>
+        <div class="float-start">
+          <p class="footerTitle font_T_Bold">頌裏政策</p>
+          <a class="font_C_Normal" href="./shippingPolicy.html">運送政策</a
+          ><br />
+          <a class="font_C_Normal" href="./returnPolicy.html">退換貨政策</a
+          ><br />
+          <a class="font_C_Normal" href="./privacyPolicy.html">隱私權政策</a>
+        </div>
+        <div class="float-start">
+          <p class="footerTitle font_T_Bold">顧客服務</p>
+          <a class="font_C_Normal" href="./qna.html">Q/A</a><br />
+          <!-- <a href="">訂購流程</a><br>
+            <a href="">花禮維護與照顧</a><br> -->
+          <a class="font_C_Normal" href="./news.html">訊息公告</a>
+        </div>
+      </div>
+      <div class="connect float-end">
+        <ul class="d-flex">
+          <li>
+            <a href="https://www.facebook.com/"
+              ><i class="fa-brands fa-square-facebook"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://line.me/tw/"><i class="fa-brands fa-line"></i></a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- login&register -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content active">
+          <div class="modal-header">
+            <button class="modal-title active" id="exampleModalLabel">
+              登入
+            </button>
+            <button class="modal-title" id="exampleModalLabel">註冊</button>
+          </div>
+          <form id="loginForm" action="" method="get">
+            <div class="modal-body active">
+              <div class="loginControl">
+                <input id="account" type="text" placeholder="帳號" /><br />
+                <input id="pwd" type="password" placeholder="密碼" /><br />
+                <button id="forgotPwd" type="button">忘記密碼?</button>
+              </div>
+            </div>
+            <div class="modal-footer clearfix active">
+              <input
+                id="login"
+                data-bs-dismiss="modal"
+                type="submit"
+                class="float-end"
+                value="登入"
+              />
+            </div>
+          </form>
+          <form id="registerForm" method="post">
+            <div class="modal-body">
+              <div class="loginControl">
+                <input
+                  type="text"
+                  maxlength="50"
+                  placeholder="姓名"
+                  name="uName"
+                  id="uName"
+                  required
+                /><br />
+                <label for="">生日：</label
+                ><input type="date" name="uBirth" id="uBirth" required /><br />
+                <label for="">性別：</label>
+                <input type="radio" name="uGender" value="男" /><label
+                  for=""
+                  class="px-1"
+                  >男</label
+                ><input type="radio" name="uGender" value="女" /><label
+                  for=""
+                  class="px-1"
+                  >女</label
+                >
+                <label id="genderCheck"></label>
+                <input
+                  type="text"
+                  placeholder="帳號"
+                  name="uAccount"
+                  id="uAccount"
+                  minlength="3"
+                  maxlength="20"
+                  required
+                />
+                <label id="accountCheck"></label>
+                <input
+                  type="email"
+                  placeholder="電子郵件地址"
+                  name="uEmail"
+                  id="uEmail"
+                  maxlength="255"
+                  required
+                />
+                <label id="emailCheck"></label>
+                <label for="">是否開啟信箱提醒：</label>
+                <input type="radio" name="uChoice" value="是" /><label
+                  for=""
+                  class="px-1"
+                  >是</label
+                ><input type="radio" name="uChoice" value="否" checked /><label
+                  for=""
+                  class="px-1"
+                  >否</label
+                >
+
+                <input
+                  type="tel"
+                  placeholder="電話"
+                  name="uTel"
+                  id="uTel"
+                  maxlength="15"
+                  required
+                /><br />
+                <input
+                  type="password"
+                  placeholder="請輸入密碼"
+                  name="uPwd"
+                  id="uPwd"
+                  minlength="8"
+                  required
+                /><label id="uPwdText"></label>
+                <input
+                  type="password"
+                  placeholder="請再次輸入密碼"
+                  id="uPwdCorrect"
+                /><br />
+                <label id="uPwdCorrectText"></label>
+              </div>
+            </div>
+            <!-- data-bs-dismiss="modal" -->
+            <div class="modal-footer clearfix">
+              <input
+                id="register"
+                type="submit"
+                class="float-end"
+                value="註冊"
+              />
+            </div>
+          </form>
+        </div>
+        <!-- 信箱驗證畫面 -->
+        <div class="modal-content">
+          <div class="mail">
+            <img
+              src="../image/logo大專_上色.png"
+              style="width: 200px; text-align: center"
+            />
+            <div id="mailText"></div>
+            <input
+              type="button"
+              id="know"
+              data-bs-dismiss="modal"
+              class="float-end"
+              value="我知道了"
+            />
+          </div>
+        </div>
+        <div class="modal-content">
+          <form id="forgotPwdform" method="post">
+            <div class="modal-body">
+              <div class="loginControl">
+                <label for="">選填其中一個：</label>
+                <input
+                  type="radio"
+                  name="choiceWay"
+                  value="信箱"
+                  checked
+                /><label for="">信箱</label
+                ><input type="radio" name="choiceWay" value="帳號" /><label
+                  for=""
+                  >帳號</label
+                >
+                <input id="accountF" type="text" placeholder="您的註冊帳號" />
+                <input id="mailF" type="email" placeholder="您的註冊信箱" />
+                <p id="forgotPwdtext"></p>
+              </div>
+            </div>
+            <div class="modal-footer clearfix">
+              <input
+                id="forgotPwdsend"
+                data-bs-dismiss="modal"
+                type="submit"
+                class="float-end"
+                value="寄送驗證碼"
+              />
+              <input
+                id="backTologin"
+                type="button"
+                class="float-start"
+                value="返回登入"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- 購物車顯示 -->
+    <script src="../js/showCart.js"></script>
+
+    <!-- 切換手機或email -->
+    <script>
+      $('#contactForm').on(
+        'change',
+        'div>div>input[type=radio][name="info"]',
+        function () {
+          switch ($(this).val()) {
+            case '手機號碼':
+              $('#telInput').show();
+              $('#emailInput').hide();
+              break;
+            case '電子郵件':
+              $('#telInput').hide();
+              $('#emailInput').show();
+              break;
+          }
+        }
+      );
+    </script>
+
+    <!-- 登入後帶入資料 -->
+    <script>
+      let userAccount = sessionStorage.getItem('User');
+      function addForm() {
+        $('#contactForm').empty();
+        $('#contactForm').append(
+          `<h4 class="formTitle">聯絡我們</h4>
+          <div class="container p-3 fs-5">
+            <p>如果您有任何問題或需要進一步的幫助，請留下訊息，我們會盡快回覆您。</p>
+            <span>請留下您的聯絡資訊</span>
+            <div id="nameBlock" class="d-flex flex-row justify-content-between align-items-center">
+              <label id="uName" class="mt-1" for="uName">姓名：</label>
+              <input type="text" class="my-2 w-70" id="nameInput" required="required" name="uName" />
+              <span id="showName" class="px-2"></span>
+              <span id="showTitle" class="d-flex me-auto"></span>
+              <div>
+                <input type="radio" id="man" name="uGender" value="先生" />
+                <label for="man">先生</label>
+                <input type="radio" id="woman" name="uGender" value="小姐" />
+                <label for="woman">小姐</label>
+              </div>
+            </div>
+            <br />
+            <div id="info">
+              <input class="mx-1 px-2" type="radio" id="tel" name="info" value="手機號碼" checked />
+              <label id="uTel" for="tel">手機號碼</label>
+              <input class="ms-3 px-2" type="radio" id="email" name="info" value="電子郵件" />
+              <span id="showTel"></span>
+              <label id="uEmail" for="email">電子郵件</label>
+              <input id="telInput" class="my-2 w-100" placeholder="0912 345 678" name="tel" />
+              <input id="emailInput" class="my-2 w-100" placeholder="請輸入您的電子郵件" name="email" />
+              <span id="showEmail"></span>
+            </div>
+          
+            <br />
+            <span>請選擇主題並在下方描述說明</span>
+            <br />
+            <select id="msgClass" class="w-100" name="msgClass" required="required">
+              <option value="-" >-</option>
+              <option value="訂單相關">訂單相關問題</option>
+              <option value="運送相關">運送相關問題</option>
+              <option value="付款相關">付款相關問題</option>
+              <option value="大宗訂購相關">大宗訂購相關問題</option>
+              <option value="其它">其它(非上述問題)</option>
+            </select>
+            <br />
+            <br />
+            <span>需要什麼協助？</span>
+            <textarea id="msg" class="w-100 align-top" placeholder="請輸入您的訊息，謝謝!" name="msg"
+              required="required"></textarea>
+            <br />
+            <br />
+            <div class="d-flex justify-content-center">
+              <input id="contactUs" type="submit" class="py-1 px-2"></input>
+              <div class="dialogBG" id="dialogBG"></div>
+              <div class="dialog" id="dialog">
+                <div class="close" onclick="hideDialog();" id="x">
+                  <i class="bi bi-x-circle"></i>
+                </div>
+                  已收到您的訊息，客服會盡快與您聯繫，謝謝！
+              </div>
+            </div>
+          </div>`
+        );
+      }
+
+      function hi(userAccount) {
+        $.ajax({
+          url: '../php/contactForm.php',
+          method: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify({
+            uAccount: userAccount,
+          }),
+        }).done(function (pika) {
+          let info = JSON.parse(pika);
+          // console.log(info);
+
+          // 姓名&性別
+          if (info[0].uName != '') {
+            $('#showName').append(info[0].uName);
+            if (info[0].uGender == '男') {
+              $('#showTitle').append(' 先生');
+            } else {
+              $('#showTitle').append(' 小姐');
+            }
+            $('label[for="woman"]').hide();
+            $('label[for="man"]').hide();
+            $('#nameInput').hide();
+            $('#man').hide();
+            $('#woman').hide();
+            // document.getElementById('nameInput').removeAttribute('required');
+            $('#nameInput').removeAttr('required');
+          }
+          // 手機
+          if (info[0].uTel != '') {
+            $('#uTel').append('：');
+            $('#showTel').append(`${info[0].uTel}`);
+            $('#telInput').hide();
+            $('#tel').hide();
+          }
+          // 電子郵件
+          if (info[0].uEmail != '') {
+            $('#uEmail').before(`<br>`);
+            $('#uEmail').append('：');
+            $('#showEmail').append(`${info[0].uEmail}`);
+            $('#emailInput').hide();
+            $('#email').hide();
+          }
+        });
+      }
+      if (userAccount) {
+        addForm();
+        hi(userAccount);
+      } else if (userAccount == null || !userAccount) {
+        //要退回去
+        addForm();
+      }
+
+      // 存入資料庫
+      $('#contactForm').on('submit', function (event) {
+        event.preventDefault();
+
+        var visitor = {
+          uName: $('#nameInput').val(),
+          uGender: $('input[name="uGender"]:checked').val(),
+          uTel: $('#telInput').val(),
+          uEmail: $('#emailInput').val(),
+          msgClass: $('#msgClass').find(':selected').text(),
+          msg: $('#msg').val(),
+        };
+
+        var member = {
+          uName: $('#showName').text(),
+          uGender: $('#showTitle').text(),
+          uTel: $('#showTel').text(),
+          uEmail: $('#showEmail').text(),
+          msgClass: $('#msgClass').find(':selected').text(),
+          msg: $('#msg').val(),
+        };
+
+        $.ajax({
+          url: '../php/contactSubmit.php',
+          method: 'POST',
+          data: JSON.stringify($('#showName').text() != '' ? member : visitor),
+          contentType: 'application/json',
+          success: function () {
+            showDialog();
+            console.log('ok');
+          },
+          error: function (error) {
+            console.log(error);
+          },
+        });
+      });
+    </script>
+
+    <!-- 提交成功訊息提示框 -->
+    <script>
+      function showDialog() {
+        $('#dialogBG').css('display', 'block');
+        $('#dialog').css('display', 'block');
+      }
+      function hideDialog() {
+        $('#dialogBG').css('display', 'none');
+        $('#dialog').css('display', 'none');
+        $('#msgClass').val('-');
+        $('#msg').val('');
+      }
+    </script>
+    <!-- 登入畫面控制 -->
+    <script src="../js/login.js"></script>
+  </body>
+</html>

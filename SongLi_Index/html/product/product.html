@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>商品 | Song-Li</title>
+	<!-- bootstrap.css -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<!-- bootstrap.js -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+		crossorigin="anonymous"></script>
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<!-- 字體 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&display=swap"
+		rel="stylesheet">
+	<!-- icon -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+		integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+	<!-- style_product.css -->
+	<link rel="stylesheet" href="../../css/style_product.css">
+	<link rel="stylesheet" href="../../css/cartIcon.css">
+	<link rel="stylesheet" href="../../css/navUD.css">
+</head>
+
+<!-- ==================================================================================================
+    body
+=======================================================================================================-->
+
+<body>
+	<!-- 要注意連結多一層 -->
+	<header class="fixed-top">
+		<nav class="navbar navbar-expand-lg navbg clearfix">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="../index.html"><img src="../../image/logo大專_上色.png" alt=""
+						class="logo"></a>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 180px;">
+						<li class="nav-item me-5 font_T_Bolder">
+							<a class="nav-link navli" href="./product.html">商品</a>
+						</li>
+						<li class="nav-item me-5 font_T_Bolder">
+							<a class="nav-link navli" href="../news.html">公告</a>
+						</li>
+						<li class="nav-item me-5 font_T_Bolder">
+							<a class="nav-link navli" href="../about.html">關於我們</a>
+						</li>
+						<li class="nav-item me-5 font_T_Bolder">
+							<a class="nav-link navli" href="../member.html">會員中心</a>
+						</li>
+					</ul>
+					<div class="float-end">
+						<h5 class="userName font_T_Bolder"></h5>
+					</div>
+					<div class="float-end navbtnSP">
+						<button class="navbtn font_T_Bolder mx-2" id="loginRegBtn" data-bs-toggle="modal"
+							data-bs-target="#exampleModal">登入/註冊</button>
+					</div>
+					<div class="icon-cart float-end position-relative">
+						<a href="../cart/cart.html" class="btn font_T_Bolder">
+							<i class="bi bi-cart3 fs-2"></i>
+							<span id="cartCount"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+	</header>
+
+	<div class="container firstDiv">
+		<!-- 位置座標 -->
+
+		<div>
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb text_content fw-bold fs-5">
+					<li class="breadcrumb-item active" aria-current="page">> 商品 Product</li>
+				</ol>
+			</nav>
+		</div>
+		<br>
+
+		<!-- 商品大圖 -->
+		<div>
+			<img src="../../image/product_images/big_p.png" alt="生活花藝" class="w-100">
+		</div>
+		<br><br>
+		<div class="border-bottom border border-secondary border-1 ">
+		</div>
+		<br><br><br>
+		<div class="clearfix">
+			<!-- 1.id不能重複，所以我加了1,2,3 -->
+
+			<!-- 導覽頁 分類 -->
+			<div class="w-20 float-start clearfix ">
+				<ul class="product_sidebar text_content">
+					<h4 class="text_title fw-bold"><i class="bi bi-bag-check"></i> 商品分類</h4>
+					<hr><br>
+					<li class="fs-5">
+						<div class="d-flex justify-content-between align-items-center flower-toggle">
+							<a href="" class="flex-grow-1">花卉</a>
+							<i class="bi bi-chevron-down chevron-icon float-end"></i>
+						</div>
+						<ul class="flower-submenu" style="display: none;">
+							<li><a href="#F">‧鮮花</a></li>
+							<li><a href="#L">‧永生花</a></li>
+							<li><a href="#S">‧訂閱服務</a></li>
+						</ul>
+					</li>
+
+					<li class="fs-5">
+						<a href="#T">周邊小物</a>
+					</li>
+				</ul>
+			</div>
+
+			<!-- 商品們 -->
+			<div class="w-80 row float-end product_point" id="productList">
+				<!-- 這邊放商品 底下ajax 連接資料庫 -->
+			</div>
+
+			<div class="row w-80 float-end clearfix">
+				<br><br>
+			</div>
+
+		</div>
+	</div>
+	<a href="#" id="toTOP" class="font_C_Normal">TOP</a>
+
+	<!-- footer -->
+	<footer class="container-fluid clearfix">
+		<div class="footerDown justify-content-evenly">
+			<div class="float-start">
+				<p class="footerTitle font_T_Bold">店鋪資訊</p>
+				<p class="indexInfo font_C_Normal">電話：0923265860<br>
+					Email：bigzhuan0711@gmail.com<br>
+					時間：09:00~18:00</p>
+
+			</div>
+			<div class="float-start">
+				<p class="footerTitle font_T_Bold">頌裏政策</p>
+				<a class="font_C_Normal" href="../shippingPolicy.html">運送政策</a><br>
+				<a class="font_C_Normal" href="../returnPolicy.html">退換貨政策</a><br>
+				<a class="font_C_Normal" href="../privacyPolicy.html">隱私權政策</a>
+
+			</div>
+			<div class="float-start">
+				<p class="footerTitle font_T_Bold">顧客服務</p>
+				<a class="font_C_Normal" href="../qna.html">Q/A</a><br>
+				<!-- <a href="">訂購流程</a><br>
+                <a href="">花禮維護與照顧</a><br> -->
+				<a class="font_C_Normal" href="../news.html">訊息公告</a>
+			</div>
+		</div>
+		<div class="connect float-end">
+			<ul class="d-flex">
+				<li><a href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook"></i></a></li>
+				<li><a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a></li>
+				<li><a href="https://line.me/tw/"><i class="fa-brands fa-line"></i></a></li>
+			</ul>
+		</div>
+
+	</footer>
+	<a href="#" id="toTOP" class="font_C_Normal">TOP</a>
+
+	<!-- login&register -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content active">
+				<div class="modal-header">
+					<button class="modal-title active" id="exampleModalLabel">登入</button>
+					<button class="modal-title" id="exampleModalLabel">註冊</button>
+				</div>
+				<form id="loginForm" action="" method="get">
+					<div class="modal-body active">
+						<div class="loginControl">
+							<input id="account" type="text" placeholder="帳號"><br>
+							<input id="pwd" type="password" placeholder="密碼"><br>
+							<button id="forgotPwd" type="button">忘記密碼?</button>
+						</div>
+					</div>
+					<div class="modal-footer clearfix active">
+						<input id="login" data-bs-dismiss="modal" type="submit" class="float-end" value="登入">
+					</div>
+				</form>
+				<form id="registerForm" method="post">
+					<div class="modal-body">
+						<div class="loginControl">
+							<input type="text" maxlength="50" placeholder="姓名" name="uName" id="uName" required><br>
+							<label for="">生日：</label><input type="date" name="uBirth" id="uBirth" required><br>
+							<label for="">性別：</label>
+							<input type="radio" name="uGender" value="男"><label for="" class="px-1">男</label><input
+								type="radio" name="uGender" value="女"><label for="" class="px-1">女</label>
+							<label id="genderCheck"></label>
+							<input type="text" placeholder="帳號" name="uAccount" id="uAccount" minlength="3"
+								maxlength="20" required>
+							<label id="accountCheck"></label>
+							<input type="email" placeholder="電子郵件地址" name="uEmail" id="uEmail" maxlength="255" required>
+							<label id="emailCheck"></label>
+							<label for="">是否開啟信箱提醒：</label>
+							<input type="radio" name="uChoice" value="是"><label for="" class="px-1">是</label><input
+								type="radio" name="uChoice" value="否" checked><label for="" class="px-1">否</label>
+
+							<input type="tel" placeholder="電話" name="uTel" id="uTel" maxlength="15" required><br>
+							<input type="password" placeholder="請輸入密碼" name="uPwd" id="uPwd" minlength="8"
+								required><label id="uPwdText"></label>
+							<input type="password" placeholder="請再次輸入密碼" id="uPwdCorrect"><br>
+							<label id="uPwdCorrectText"></label>
+						</div>
+					</div>
+					<!-- data-bs-dismiss="modal" -->
+					<div class="modal-footer clearfix">
+						<input id="register" type="submit" class="float-end" value="註冊">
+					</div>
+
+				</form>
+			</div>
+			<!-- 信箱驗證畫面 -->
+			<div class="modal-content">
+				<div class="mail">
+					<img src="../../image/logo大專_上色.png" style="width: 200px; text-align: center;">
+					<div id="mailText"></div>
+					<input type="button" id="know" data-bs-dismiss="modal" class="float-end" value="我知道了">
+				</div>
+			</div>
+			<div class="modal-content">
+				<form id="forgotPwdform" method="post">
+					<div class="modal-body">
+						<div class="loginControl">
+							<label for="">選填其中一個：</label>
+							<input type="radio" name="choiceWay" value="信箱" checked><label for="">信箱</label><input
+								type="radio" name="choiceWay" value="帳號"><label for="">帳號</label>
+							<input id="accountF" type="text" placeholder="您的註冊帳號">
+							<input id="mailF" type="email" placeholder="您的註冊信箱">
+							<p id="forgotPwdtext"></p>
+						</div>
+					</div>
+					<div class="modal-footer clearfix">
+						<input id="forgotPwdsend" data-bs-dismiss="modal" type="submit" class="float-end" value="寄送驗證碼">
+						<input id="backTologin" type="button" class="float-start" value="返回登入">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- ==================================================================================================
+      script
+=======================================================================================================-->
+	<!-- 商品頁
+	http://localhost/product&cart/html/product/product.html	 -->
+
+	<!-- 購物車顯示 -->
+	<script src="../../js/showCart.js"></script>
+
+	<script>
+		// 購物車======================================================
+
+		function addToCart() {
+			const button = event.target.closest('.add-to-cart');
+			const id = button.getAttribute('data-id');
+			const name = button.getAttribute('data-name');
+			const price = parseInt(button.getAttribute('data-price'));
+			const image = button.closest('.card').querySelector('img').src;
+
+			const existingItem = cart.find(item => item.id === id);
+
+			if (existingItem) {
+				existingItem.quantity++;
+			} else {
+				cart.push({ id, name, price, quantity: 1, image });
+			}
+
+			localStorage.setItem('cart', JSON.stringify(cart));
+			// console.log(cart)
+			cartCount.innerHTML = cart.reduce((acc, cur) => acc + cur.quantity, 0,);
+
+			localStorage.setItem('cart', JSON.stringify(cart));
+			alert('【商品已加入購物車】');
+		}
+
+
+
+		// 連接product.php並使用 ajax GET 資料庫商品資訊
+		function userdata() {
+			$.ajax({
+				// url: './product.php/product',
+				url: '../../php/product.php/product',
+				method: 'GET',
+			}).done(function (pika) {
+				// var data = JSON.parse(pika)
+				// JSON.parse()字串轉物件
+				// JSON.stringify()物件轉字串
+				console.log(pika);
+
+				// 使用 reduce 將產品根據 product_id 的開頭字母分組
+				var groupedPika = pika.reduce(function (apple, product) {
+					let group = product.productId.charAt(0); // 獲取 product_id 的首字母
+					if (!apple[group]) {
+						apple[group] = []; // 如果組不存在，則創建一個新組
+					}
+					apple[group].push(product); // 將產品加入到對應的組
+					return apple;
+				}, {});
+
+				console.log(groupedPika);
+
+
+				// 這裡可以根據 groupedPika 來更新你的 HTML
+				for (let group in groupedPika) {
+					// 插入一個空行在 "L" 組之前
+					if (group !== 'F' && (group === 'L' || group === 'S' || group === 'T')) {
+						$('#productList').append(`
+                    <div class="text-center product_point">
+                        <br><br> <!-- 插入一個空行 -->
+                    </div>`);
+					}
+
+					let products = groupedPika[group];
+					// 插入新的裝飾性 HTML 片段來顯示組別標題
+					$('#productList').append(`
+						<div class="text-center product_point" id="${group}">
+							<h4 class="text_title productTitle  rounded" >- ${getGroupTitle(group)} -</h4>
+						<br>
+						</div>
+					`);
+
+					products.forEach(({ productId, productName, productPrice, productImg1 }) => {
+						$('#productList').append(`				
+						<div class="col-lg-3 mb-4">
+							<div class="card h-100">
+								<a href="./product_info.html?id=${productId}" data-productId="${productId}">
+									<img src="${productImg1}" class="card-img-top" alt="${productId}"></a>
+								<div class="card-body d-flex flex-column text_content">
+								<h5 class="card-title text_title">${productName}</h5>
+								<p class="card-text">價格: $${productPrice}</p>
+								<button class="btn btn-secondary mt-auto add-to-cart" data-id="${productId}" data-name="${productName}"
+									data-price="${productPrice}">
+									<i class="bi bi-cart-plus"></i> &nbsp;&nbsp;&nbsp;加入購物車
+								</button>
+							</div>
+						</div>
+					</div>`)
+					});
+
+				}
+				// 為動態生成的按钮绑定點擊事件
+				// $('.add-to-cart').click(addToCart);
+
+
+				// 檢查 URL 中的 hash 值，
+				// 從index.html滾動到product.html對應的位置
+				const targetId = window.location.hash.substring(1);
+				if (targetId) {
+					const targetElement = $('#' + targetId);
+					if (targetElement.length) {
+						const offset = targetElement.offset().top - 110; // 調整這裡的數字來修正滾動位置
+						$('html, body').animate({
+							scrollTop: offset
+						}, 0); // 0ms 滾動動畫效果
+					}
+				}
+
+
+			});
+		}
+
+		// 輔助函數來獲取每組的標題
+		function getGroupTitle(group) {
+			switch (group) {
+				case 'F':
+					return '鮮 花 束';
+					break;
+				case 'L':
+					return '永 生 花';
+					break;
+				case 'S':
+					return '訂 閱 服 務';
+					break;
+				case 'T':
+					return '周 邊 小 物';
+					break;
+			}
+		}
+		userdata();
+
+		// ===============================================================
+
+		// 點擊商品卡片 抓取productId 導到 product_info.html 裡
+		$("#productList").on('click', 'div>div>a', function (event) {
+			const product_card = {
+				productId: $(this).data('productid'),
+			};
+
+			// product_card POST 給 product.php裡的'product_info'
+			$.ajax({
+				url: '../../php/product.php/product_info',
+				method: 'POST',
+				data: JSON.stringify(product_card),
+				contentType: 'application/json'
+			})
+
+		});
+
+		let userName = sessionStorage.getItem("User")
+		if (userName) {
+			// 更新購物車數量顯示
+            $("#productList").off('click', 'div>div>.add-to-cart')
+
+			$("#productList").on('click', 'div>div>.add-to-cart', function () {
+				addToCart()
+				cartCount.innerHTML = cart.reduce((acc, cur) => acc + cur.quantity, 0);
+
+			})
+		} else {
+            $("#productList").off('click', 'div>div>.add-to-cart')
+
+			$("#productList").on('click', 'div>div>.add-to-cart', function () {
+				alert('請先登入')
+			})
+
+		}
+	</script>
+
+
+	<!-- 其他product js 碼 -->
+	<script src="../../js/product.js"></script>
+
+	<!-- 登入畫面控制 -->
+	<script src="../../js/login.js"></script>
+
+
+</body>
+
+</html>

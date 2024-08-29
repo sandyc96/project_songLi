@@ -1,0 +1,31 @@
+/*middle*/
+.test {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    display: block;
+    width: 150px;
+    height: 60px;
+    border-radius: 10px 0 0 10px;
+    background-color: #A0937D;
+    align-content: center;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.test:hover {
+    background-color: #aaa190;
+    color: white;
+}
+
+.Mtext{
+    position: absolute;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+    width: 100px;
+    line-height: 35px;
+    top: calc(50% - 17.5px);
+    left: calc(50% - 50px);
+}
+

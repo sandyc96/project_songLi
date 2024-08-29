@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品內容 | Song-Li</title>
+
+    <!-- bootstrap.css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- bootstrap.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- 字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&display=swap"
+        rel="stylesheet">
+    <!-- bootstrap_icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- style_product.css -->
+    <link rel="stylesheet" href="../../css/style_product.css">
+    <link rel="stylesheet" href="../../css/cartIcon.css">
+    <link rel="stylesheet" href="../../css/navUD.css">
+
+</head>
+
+<!-- ==================================================================================================
+    bady
+=======================================================================================================-->
+
+<body>
+    <!-- header 要注意連結多一層 -->
+	<header class="fixed-top">
+		<nav class="navbar navbar-expand-lg navbg clearfix">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="../index.html"><img src="../../image/logo大專_上色.png" alt=""
+						class="logo"></a>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 180px;">
+						<li class="nav-item me-5 font_T_Bolder">
+							<a class="nav-link navli" href="./product.html">商品</a>
+						</li>
+						<li class="nav-item me-5 font_T_Bolder">
+							<a class="nav-link navli" href="../news.html">公告</a>
+						</li>
+						<li class="nav-item me-5 font_T_Bolder">
+							<a class="nav-link navli" href="../about.html">關於我們</a>
+						</li>
+						<li class="nav-item me-5 font_T_Bolder">
+							<a class="nav-link navli" href="../member.html">會員中心</a>
+						</li>
+					</ul>
+                    <div class="float-end">
+                        <h5 class="userName font_T_Bolder"></h5>
+                    </div>
+					<div class="float-end navbtnSP">
+						<button class="navbtn font_T_Bolder mx-2" id="loginRegBtn" data-bs-toggle="modal"
+							data-bs-target="#exampleModal">登入/註冊</button>
+					</div>
+					<div class="icon-cart float-end position-relative">
+						<a href="../cart/cart.html" class="btn font_T_Bolder">
+							<i class="bi bi-cart3 fs-2"></i>
+							<span id="cartCount"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+	</header>
+
+    <!-- 位置座標 -->
+    <div class="container firstDiv">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb text_content fw-bold fs-5">
+                <li class="breadcrumb-item "><a href="./product.html" class="text-decoration-none text-muted">> 商品 Product</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page" data-group=""></li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- 商品主要內容區 -->
+    <div class="container clearfix">
+        <!-- 商品圖介紹區 -->
+        <div class="w-50 float-start clearfix position-relative">
+            <div class="float-end w-90 text-center">
+                <div class="image-container">
+                    <img id="save" src="" class="w-85 rounded " bigimage>
+                    <div class="right">
+                        <img src="" mirror>
+                    </div>
+                </div>
+                <br>
+            </div>
+
+            <div class="float-end w-90 clearfix text-center position-relative">
+
+                <span class="arrow" id="prev">&lt;</span>
+
+                <img src="" class="w-15 rounded smallimage" smallimage>
+                <img src="" class="w-15 rounded smallimage" smallimage>
+                <span class="arrow float-end" id="next">&gt;</span>
+            </div>
+        </div>
+
+        <!-- 商品名稱、價格區 -->
+        <div class="w-50 float-end">
+            <div class="w-90 float-end">
+                <!-- 商品名稱 -->
+                <div>
+                    <h2 data-name="" class="text_title"></h2> <!-- 這裡的內容會由JS動態更新 -->
+                </div>
+                <br>
+                <!-- 商品價格 -->
+                <div>
+                    <h3 class="text-secondary text_content" data-price=""></h3> <!-- 這裡的內容會由JS動態更新 -->
+                </div>
+
+                <hr><br>
+                <!-- 商品介紹內容 -->
+                <div class="text_content">
+                    <p class="fs-5" data-text=""></p> <!-- 這裡的內容會由JS動態更新 -->
+                    <!-- <p class="fs-5">• 適用場合：情人節花束、告白花束、生日花束、紀念日花束、展演獻花、求婚花束</p> -->
+                    <br>
+                    <hr>
+                    <p class="fs-6 text-center">※ 花束包括主花材及季節性襯花，花藝師會因應花材供應而設計。</p>
+
+                </div>
+
+                <!-- 數量增減框 -->
+                <div class="text_content">
+                    <h5>數量：</h5>
+                    <div class="input-group input-group-lg">
+                        <button class="btn btn-outline-secondary decrease-quantity" onclick="minus()"
+                            type="button">-</button>
+                        <input type="text" class="form-control text-center quantity-input" id="acount" value="0">
+                        <button class="btn btn-outline-secondary increase-quantity" onclick="plus()"
+                            type="button">+</button>
+                    </div>
+                </div>
+
+                <br>
+                <!-- 加入購物車/立即購買 按鈕 -->
+                <div class="text_content">
+                    <div class="d-grid gap-2 mx-auto">
+                        <button class="btn btn-secondary add-to-cart fs-5 btnBuy" type="button" data-id="" data-name=""
+                            data-price="">
+                            <i class="bi bi-cart-plus"></i> &nbsp;&nbsp;加入購物車
+                        </button>
+                        <a href="../cart/cart.html">
+                            <button class="btn btn-secondary fs-5 w-100 btnBuy" type="button">
+                                <i class="bi bi-credit-card"></i> &nbsp;&nbsp;&nbsp;立 即 購 買
+                            </button>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="container">
+        <br><br>
+        <hr><br><br><br>
+    </div>
+
+
+    <!-- 商品注意事項&推薦商品-->
+    <div class="container clearfix">
+        <div class="w-60 float-start clearfix text_content">
+
+            <div class="btn-group btn-group-lg" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary" for="btnradio1">注意事項 ＆ 花卉保存 </label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                <label class="btn btn-outline-secondary" for="btnradio3">卡片加購 ＆ 出貨運送說明</label>
+            </div>
+
+            <div id="b1" class="showb1">
+                <br><br>
+                <h5 class="text_title">【注意事項】</h5><br>
+                <p>．商品皆為手工製作，尺寸、花況及實際顏色可能略有誤差，以實際商品為主，敬請見諒。</p>
+                <p>．若遇花材缺貨，將會以其他等值的花材或顏色設計調整，恕不另行通知。</p>
+                <p>．下單後，即會為您準備預定花材，不可無故取消，亦不適用退換貨。</p>
+                <p>．為保護花禮，會使用空氣袋及紙箱包裝運送，盡量妥善保護，請放心。</p>
+                <p>．花禮到貨後，若因運送過程而有任何損壞，請立即拍照，並於[當日]聯繫，讓我們盡快協助您後續處理；逾日，恕我們無法補償。</p>
+                <p>．本賣場尚未開放離島地區運送服務，敬請請見諒。</p>
+                <br>
+                <hr><br>
+                <h5 class="text_title">【花卉保存方式】</h5><br>
+                <p class="fw-bold">＊鮮花：</p>
+                <p>．鮮花鑑賞期為3-5天。</p>
+                <p>．當花束插入裝水的花器，建議每日換水及修剪花莖，放置於通風陰涼的環境，可以延長花束的壽命。</p>
+                <p>．花束底下有包水袋，水量約可維持1天，若想維持包裝，可以每日將適量清水注入水袋內。</p>
+                <p>．盆花建議每日將適量清水注入海綿，保持濕潤。</p>
+                <p>．澆水時盡量避開花瓣，如果有枯萎泛黃的花瓣葉子，將其摘除取出，以免影響其他植物的壽命。</p>
+                <br>
+                <p class="fw-bold">＊永生花：</p>
+                <p>．應避免放置於潮濕的環境以及陽光直射的地方。</p>
+                <p>．如花朵上有灰塵，建議使用吹風機冷風，將灰塵輕輕吹掉。</p>
+                <p>．乾燥/永生花材可存放2~3年，但色澤仍會隨時間及環境改變。</p>
+                <p>．永生花若受潮會呈現半透明狀，此情況建議加強除濕。</p>
+                <br><br>
+            </div>
+
+            <div id="b2" class="hiddenb2">
+                <br><br>
+                <h5 class="text_title">【加購卡片】</h5><br>
+                <p>．卡片尺寸：長寬約10.5x9公分。</p>
+                <p>．卡片代寫請於訂單結帳處加購併於備註欄填寫內容（限30字,字數越多字體會越小）</p>
+                <p>．卡片若無署名，收花人收到花禮時將不會知道訂購人資訊。</p>
+                <br>
+                <hr><br>
+                <h5 class="text_title">【出貨說明】</h5><br>
+                <p>．為維持品質，賣場花禮皆無現貨，採接單後於出貨日前1天手工製作，出貨周期約為2~3天。</p>
+                <p>．如未填寫指定日期，下單付款後將於2~5個工作天出貨。</p>
+                <p>．若節慶假日遇訂單較多或不可抗力天災因素，則可能延遲出貨。</p>
+                <p>⚠️如有急迫性送達日，請先使來電詢問喔⚠️</p>
+                <br>
+                <hr><br>
+                <h5 class="text_title">【運送說明】</h5><br>
+                <p>．黑貓宅配運費為$160(可選擇時段：不指定/13點前/14~18點)。</p>
+                <p>．低溫宅配，配送約1-2個工作天。</p>
+            </div>
+
+        </div>
+
+        <div class="container">
+            <br><br>
+        </div>
+
+        <!-- 推薦商品 -->
+        <div class="w-40 float-end clearfix text_title">
+            <div class="w-50 float-end">
+                <h4 class="text-center fw-bold"><i class="bi bi-bookmark-heart"></i></i> 推薦商品</h4>
+                <hr>
+                <a href="./product_info.html?id=F2"><img src="../../image/product_images/flowers.images/F2-1-sun.png"
+                        class="rounded w-100" alt="Image F2-1"></a>
+                <br><br>
+                <a href="./product_info.html?id=L3"><img src="../../image/product_images/life_images/L3-1-birthday.png"
+                        class="rounded w-100" alt="Image L3-1"></a>
+                <br><br>
+                <a href="./product_info.html?id=S3"><img src="../../image/product_images/subscribe.images/S2-1-pot.png"
+                        class="rounded w-100" alt="Image S2-1"></a>
+                <br><br>
+                <a href="./product_info.html?id=T1"><img src="../../image/product_images/goods_images/G1-glass.png"
+                        class="rounded w-100" alt="Image G1"></a>
+                <br><br><br>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" id="toTOP" class="font_C_Normal">TOP</a>
+
+    <!-- footer ---------------------------------->
+	<footer class="container-fluid clearfix">
+		<div class="footerDown justify-content-evenly">
+			<div class="float-start">
+				<p class="footerTitle font_T_Bold">店鋪資訊</p>
+				<p class="indexInfo font_C_Normal">電話：0923265860<br>
+					Email：bigzhuan0711@gmail.com<br>
+					時間：09:00~18:00</p>
+
+			</div>
+			<div class="float-start">
+				<p class="footerTitle font_T_Bold">頌裏政策</p>
+				<a class="font_C_Normal" href="../shippingPolicy.html">運送政策</a><br>
+				<a class="font_C_Normal" href="../returnPolicy.html">退換貨政策</a><br>
+				<a class="font_C_Normal" href="../privacyPolicy.html">隱私權政策</a>
+
+			</div>
+			<div class="float-start">
+				<p class="footerTitle font_T_Bold">顧客服務</p>
+				<a class="font_C_Normal" href="../qna.html">Q/A</a><br>
+				<!-- <a href="">訂購流程</a><br>
+                <a href="">花禮維護與照顧</a><br> -->
+				<a class="font_C_Normal" href="../news.html">訊息公告</a>
+			</div>
+		</div>
+		<div class="connect float-end">
+			<ul class="d-flex">
+				<li><a href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook"></i></a></li>
+				<li><a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a></li>
+				<li><a href="https://line.me/tw/"><i class="fa-brands fa-line"></i></a></li>
+			</ul>
+		</div>
+
+	</footer>
+	<!-- login&register -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content active">
+                <div class="modal-header">
+                    <button class="modal-title active" id="exampleModalLabel">登入</button>
+                    <button class="modal-title" id="exampleModalLabel">註冊</button>
+                </div>
+                <form id="loginForm" action="" method="get">
+                    <div class="modal-body active">
+                        <div class="loginControl">
+                            <input id="account" type="text" placeholder="帳號"><br>
+                            <input id="pwd" type="password" placeholder="密碼"><br>
+                            <button id="forgotPwd" type="button">忘記密碼?</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer clearfix active">
+                        <input id="login" data-bs-dismiss="modal" type="submit" class="float-end" value="登入">
+                    </div>
+                </form>
+                <form id="registerForm" method="post">
+                    <div class="modal-body">
+                        <div class="loginControl">
+                            <input type="text" maxlength="50" placeholder="姓名" name="uName" id="uName" required><br>
+                            <label for="">生日：</label><input type="date" name="uBirth" id="uBirth" required><br>
+                            <label for="">性別：</label>
+                            <input type="radio" name="uGender" value="男"><label for="" class="px-1">男</label><input
+                                type="radio" name="uGender" value="女"><label for="" class="px-1">女</label>
+                            <label id="genderCheck"></label>
+                            <input type="text" placeholder="帳號" name="uAccount" id="uAccount" minlength="3"
+                                maxlength="20" required>
+                            <label id="accountCheck"></label>
+                            <input type="email" placeholder="電子郵件地址" name="uEmail" id="uEmail" maxlength="255" required>
+                            <label id="emailCheck"></label>
+                            <label for="">是否開啟信箱提醒：</label>
+                            <input type="radio" name="uChoice" value="是"><label for="" class="px-1">是</label><input
+                                type="radio" name="uChoice" value="否" checked><label for="" class="px-1">否</label>
+
+                            <input type="tel" placeholder="電話" name="uTel" id="uTel" maxlength="15" required><br>
+                            <input type="password" placeholder="請輸入密碼" name="uPwd" id="uPwd" minlength="8"
+                                required><label id="uPwdText"></label>
+                            <input type="password" placeholder="請再次輸入密碼" id="uPwdCorrect"><br>
+                            <label id="uPwdCorrectText"></label>
+                        </div>
+                    </div>
+                    <!-- data-bs-dismiss="modal" -->
+                    <div class="modal-footer clearfix">
+                        <input id="register" type="submit" class="float-end" value="註冊">
+                    </div>
+
+                </form>
+            </div>
+            <!-- 信箱驗證畫面 -->
+            <div class="modal-content">
+                <div class="mail">
+                    <img src="../../image/logo大專_上色.png" style="width: 200px; text-align: center;">
+                    <div id="mailText"></div>
+                    <input type="button" id="know" data-bs-dismiss="modal" class="float-end" value="我知道了">
+                </div>
+            </div>
+            <div class="modal-content">
+                <form id="forgotPwdform" method="post">
+                    <div class="modal-body">
+                        <div class="loginControl">
+                            <label for="">選填其中一個：</label>
+                            <input type="radio" name="choiceWay" value="信箱" checked><label for="">信箱</label><input
+                                type="radio" name="choiceWay" value="帳號"><label for="">帳號</label>
+                            <input id="accountF" type="text" placeholder="您的註冊帳號">
+                            <input id="mailF" type="email" placeholder="您的註冊信箱">
+                            <p id="forgotPwdtext"></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer clearfix">
+                        <input id="forgotPwdsend" data-bs-dismiss="modal" type="submit" class="float-end" value="寄送驗證碼">
+                        <input id="backTologin" type="button" class="float-start" value="返回登入">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ==================================================================================================
+      script
+=======================================================================================================-->
+    <script>
+        // 商品內頁
+        function getGroupTitle(group) {
+            switch (group) {
+                case 'F':
+                    return '鮮 花 束';
+                case 'L':
+                    return '永 生 花';
+                case 'S':
+                    return '訂 閱 服 務';
+                case 'T':
+                    return '周 邊 小 物';
+                default:
+                    return '未知分類';
+            }
+        }
+
+
+        $(document).ready(function () {
+            // 獲取 URL 參數
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            // console.log(productId);
+
+
+            // 發送 AJAX 請求
+            $.ajax({
+                url: '../../php/product.php/product_info',
+                method: 'POST',
+                data: { id: productId }, // 將 productId 傳送到後端
+                dataType: 'json',
+                success: function (product) {
+                    if (product) {
+                        console.log(product);
+
+                        // 更新頁面內容
+                        $('h2[data-name]').text(product.productName);
+                        $('h3[data-price]').text(`NT$ ${product.productPrice}`);
+                        // $('p[data-text]').text(`‧ ${product.productText}`);
+                        $('p[data-text]').html(`‧ ${product.productText.replace(/\n/g, '<br>')}`);
+                        $('img[bigimage]').attr('src', product.productImg1);
+                        $('img[smallimage]').eq(0).attr('src', product.productImg1);
+                        $('img[smallimage]').eq(1).attr('src', product.productImg2);
+
+                        // 獲取 productId 的首字母
+                        const group = product.productId.charAt(0);
+                        // 動態設置面包屑導航中的分類名稱
+                        const groupTitle = getGroupTitle(group);
+                        $('li[data-group]').text(groupTitle);
+
+
+                        // 更新加入購物車按鈕的數據
+                        $('.add-to-cart').attr({
+                            'data-id': product.productId,
+                            'data-name': product.productName,
+                            'data-price': product.productPrice
+                        });
+                    } else {
+                        console.error("No product data found");
+                    }
+
+                },
+                error: function (xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+
+    </script>
+
+
+
+
+
+    <!-- 登入畫面控制 -->
+    <script src="../../js/login.js"></script>
+    <!-- 購物車顯示 -->
+    <script src="../../js/showCart.js"></script>
+    <!-- 其他product_info js 碼 -->
+    <script src="../../js/product_info.js"></script>
+
+
+
+</body>
+
+</html>

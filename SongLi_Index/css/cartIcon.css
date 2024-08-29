@@ -1,0 +1,24 @@
+.icon-cart {
+    margin-right: 70px;
+}
+
+.icon-cart i {
+    color: #8b8a87;
+}
+.icon-cart i:hover{
+    color: #5c5b59;
+}
+.icon-cart span {
+    position: absolute;
+    background-color: #4b6053;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    top: 12%;
+    right: -6%;
+}
+
+/* 購物車圖示的共用 */

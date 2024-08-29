@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>會員中心 | Song-Li</title>
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <!-- icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&display=swap"
+    rel="stylesheet">
+  <!-- css -->
+  <link rel="stylesheet" href="../css/memberStyle.css">
+  <link rel="stylesheet" href="../css/cartIcon.css">
+  <link rel="stylesheet" href="../css/navUD.css">
+  <!-- jQ -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <!-- js -->
+  <script src="../js/userData.js"></script>
+
+  <script src="../js/calendar.js"></script>
+  <!-- <script src="../js/order.js"></script> -->
+  <!-- React -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+<body>
+  <header class="fixed-top">
+    <nav class="navbar navbar-expand-lg navbg clearfix">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img src="../image/logo大專_上色.png" alt="" class="logo"></a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 180px;">
+            <li class="nav-item me-5 font_T_Bolder">
+              <a class="nav-link navli" href="./product/product.html">商品</a>
+            </li>
+            <li class="nav-item me-5 font_T_Bolder">
+              <a class="nav-link navli" href="./news.html">公告</a>
+            </li>
+            <li class="nav-item me-5 font_T_Bolder">
+              <a class="nav-link navli" href="./about.html">關於我們</a>
+            </li>
+            <li class="nav-item me-5 font_T_Bolder">
+              <a class="nav-link navli" href="./member.html">會員中心</a>
+            </li>
+          </ul>
+          <div class="float-end">
+            <h5 class="userName font_T_Bolder"></h5>
+          </div>
+          <div class="float-end navbtnSP">
+            <!-- <a href="../html/product/product.html#productList2" class="navbtn font_T_Bolder mx-2">訂閱</a>                        <button class="navbtn font_T_Bolder mx-2" id="loginRegBtn" data-bs-toggle="modal" -->
+            <button class="navbtn font_T_Bolder mx-2" id="loginRegBtn" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">登入/註冊</button>
+          </div>
+          <div class="icon-cart float-end position-relative">
+            <a href="./cart/cart.html" class="btn font_T_Bolder">
+              <i class="bi bi-cart3 fs-2"></i>
+              <span id="cartCount"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+
+
+  <!-- row外面要包一層=>不然會凸出去 -->
+  <div class="container firstDiv">
+    <div class="row">
+      <!-- sidebar側邊攔的按鈕 -->
+      <div class="col-4">
+        <div class="tab">
+          <button class="tablinks font_T_Bolder"><img src="../image/job-2.png" alt="">基本資料</button>
+          <button class="tablinks font_T_Bolder"><img src="../image/flower-1.png" alt="">預約日期</button>
+          <button class="tablinks font_T_Bolder"><img src="../image/truck-2.png" alt="">訂單查詢</button>
+        </div>
+      </div>
+      <div class="col-8">
+        <!-- 會員資料的頁 -->
+        <div id="memberInformation" class="tabcontent active">
+
+          <h3 class="font_T_Bold">會員資料<img src="../image/標題-2.png"></h3>
+
+          <hr>
+          <div id="memberData" class="font_T_Normal">
+            <!-- 會員資料(抓資料庫) -->
+            <form action="../php/member.php" method="post" enctype="multipart/form-data">
+              <label for="" class="mlabel-1">姓名</label><input type="text" placeholder="姓名" name="mName" id="mName"><br>
+              <label for="" class="mlabel-1">生日</label><span id="mBirthday"></span><br>
+              <label for="" class="mlabel-1">性別</label><span id="mGender"></span><br>
+              <label for="" class="mlabel-1">帳號</label><span id="mAccount"></span><br>
+              <label for="" class="mlabel-2">電子信箱</label><input type="email" placeholder="電子郵件地址" name="mEmail"
+                id="mEmail"><br>
+              <label for="" class="mlabel-3">※開啟提醒</label>
+              <input type="radio" name="choice" class="mlabel-4" id="mChoiceYes" value="是">是
+              <input type="radio" name="choice" class="mlabel-4" id="mChoiceNo" value="否">否<br>
+              <label for="" class="mlabel-2">手機號碼</label><input type="tel" placeholder="電話" name="mTel" id="mTel"><br>
+              <!-- 更新按鈕，將會員更改的資料存進資料庫 -->
+              <input type="submit" id="mupdata" class="calendarbtn float-end" value="更新">
+            </form>
+          </div>
+        </div>
+        <!-- 預約訂單的頁 -->
+        <div id="dateInformation" class="tabcontent ">
+          <h3 class="font_T_Bold">預約日期<img src="../image/標題-2.png"></h3>
+          <hr>
+          <div class="row">
+            <div class="col-7">
+              <!-- 月曆 -->
+              <div class="calendar font_C_Light">
+                <!-- 年、月和往前往後的按鈕 -->
+                <div id="myearmonth">
+                  <!-- 往前按鈕 -->
+                  <button class="left myearmonthbtn-1 calendarbtn"><i class="fa-solid fa-chevron-left"></i></button>
+                  <p>
+                  <div class="year"></div>年</p>
+                  <p>
+                  <div class="month"></div>月</p>
+                  <!-- 往後按鈕 -->
+                  <button class="right myearmonthbtn-2 calendarbtn"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <!-- 裝日期的table -->
+                <table id="calendarDate" class="table-bordered table align-middle ">
+                  <!-- 星期幾 -->
+                  <thead class="weekDay">
+                    <tr class="ordertr calendarth">
+                      <th>日</th>
+                      <th>一</th>
+                      <th>二</th>
+                      <th>三</th>
+                      <th>四</th>
+                      <th>五</th>
+                      <th>六</th>
+                    </tr>
+                  </thead>
+                  <!-- 日期 -->
+                  <tbody class="days "></tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col-5">
+              <!-- 新增的條列行事曆 -->
+              <div id="eventList">
+                <h3 class="font_T_Bolder">預約的提醒</h3>
+                <!-- 從資料庫抓出來的ul、li -->
+                <ul id="FromDB"></ul>
+                <!-- 網頁新增的li(會進資料庫) -->
+                <ul id="addEventList" class="addEventList"></ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- 訂單查詢的頁 -->
+        <div id="orderInformation" class="tabcontent">
+          <h3 class="font_T_Bold">訂單查詢<img src="../image/標題-2.png"></h3>
+          <hr>
+          <!-- 資料庫抓出來的所有訂單 -->
+          <div class="order-container">
+            <!-- 訂單的樣式 -->
+            <!-- <table class=" table-bordered table font_C_Light">
+                <tr class="ordertr">
+                  <th colspan="2">訂單編號 <span id="orderId">#001</span></th>
+                </tr>
+                <tr>
+                  <th>商品名稱</th>
+                  <td id="uProduct">花花</td>
+                </tr>
+                <tr>
+                  <th>商品數量</th>
+                  <td id="uAmount">2</td>
+
+                </tr>
+                <tr>
+                  <th>訂單狀態</th>
+                  <td id="uState">備貨中，預計3日內出貨</td>
+                </tr>
+              </table> -->
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- 跳出來的送禮備註框 -->
+    <form id="controls" method="post">
+      <div id="controlss">
+        <span class="close " id="xx">&times;</span>
+        <input type="text" id="whoInput" placeholder="送禮備註欄"><br>
+        <input type="submit" id="addWhoBtn" class="calendarbtn" value="加入">
+      </div>
+    </form>
+
+
+  </div>
+  </div>
+
+  <!-- 不夠長所以拉一點 -->
+  <br><br><br><br><br><br><br><br><br>
+
+
+  <!-- 這裡是footer -->
+  <footer class="container-fluid clearfix">
+    <div class="footerDown justify-content-evenly">
+      <div class="float-start">
+        <p class="footerTitle font_T_Bold">店鋪資訊</p>
+        <p class="indexInfo font_C_Normal">電話：0923265860<br>
+          Email：bigzhuan0711@gmail.com<br>
+          時間：09:00~18:00</p>
+
+      </div>
+      <div class="float-start">
+        <p class="footerTitle font_T_Bold">頌裏政策</p>
+        <a class="font_C_Normal" href="./shippingPolicy.html">運送政策</a><br>
+        <a class="font_C_Normal" href="./returnPolicy.html">退換貨政策</a><br>
+        <a class="font_C_Normal" href="./privacyPolicy.html">隱私權政策</a>
+
+      </div>
+      <div class="float-start">
+        <p class="footerTitle font_T_Bold">顧客服務</p>
+        <a class="font_C_Normal" href="./qna.html">Q/A</a><br>
+        <!-- <a href="">訂購流程</a><br>
+            <a href="">花禮維護與照顧</a><br> -->
+        <a class="font_C_Normal" href="./news.html">訊息公告</a>
+      </div>
+    </div>
+    <div class="connect float-end">
+      <ul class="d-flex">
+        <li><a href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook"></i></a></li>
+        <li><a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a href="https://line.me/tw/"><i class="fa-brands fa-line"></i></a></li>
+      </ul>
+    </div>
+
+  </footer>
+
+  <!-- login&register *會員中心只會有登出* 會員中心的要先登入後才會進=>所以之後有判斷 -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content active">
+        <div class="modal-header">
+          <button class="modal-title active" id="exampleModalLabel">登入</button>
+          <button class="modal-title" id="exampleModalLabel">註冊</button>
+        </div>
+        <form id="loginForm" action="" method="get">
+          <div class="modal-body active">
+            <div class="loginControl">
+              <input id="account" type="text" placeholder="帳號"><br>
+              <input id="pwd" type="password" placeholder="密碼"><br>
+              <button id="forgotPwd" type="button">忘記密碼?</button>
+            </div>
+          </div>
+          <div class="modal-footer clearfix active">
+            <input id="login" data-bs-dismiss="modal" type="submit" class="float-end" value="登入">
+          </div>
+        </form>
+        <form id="registerForm" method="post">
+          <div class="modal-body">
+            <div class="loginControl">
+              <input type="text" maxlength="50" placeholder="姓名" name="uName" id="uName" required><br>
+              <label for="">生日：</label><input type="date" name="uBirth" id="uBirth" required><br>
+              <label for="">性別：</label>
+              <input type="radio" name="uGender" value="男"><label for="" class="px-1">男</label><input type="radio"
+                name="uGender" value="女"><label for="" class="px-1">女</label>
+              <label id="genderCheck"></label>
+              <input type="text" placeholder="帳號" name="uAccount" id="uAccount" minlength="3" maxlength="20" required>
+              <label id="accountCheck"></label>
+              <input type="email" placeholder="電子郵件地址" name="uEmail" id="uEmail" maxlength="255" required>
+              <label id="emailCheck"></label>
+              <label for="">是否開啟信箱提醒：</label>
+              <input type="radio" name="uChoice" value="是"><label for="" class="px-1">是</label><input type="radio"
+                name="uChoice" value="否" checked><label for="" class="px-1">否</label>
+
+              <input type="tel" placeholder="電話" name="uTel" id="uTel" maxlength="15" required><br>
+              <input type="password" placeholder="請輸入密碼" name="uPwd" id="uPwd" minlength="8" required><label
+                id="uPwdText"></label>
+              <input type="password" placeholder="請再次輸入密碼" id="uPwdCorrect"><br>
+              <label id="uPwdCorrectText"></label>
+            </div>
+          </div>
+          <!-- data-bs-dismiss="modal" -->
+          <div class="modal-footer clearfix">
+            <input id="register" type="submit" class="float-end" value="註冊">
+          </div>
+
+        </form>
+      </div>
+      <!-- 信箱驗證畫面 -->
+      <div class="modal-content">
+        <div class="mail">
+          <img src="../image/logo大專_上色.png" style="width: 200px; text-align: center;">
+          <div id="mailText"></div>
+          <input type="button" id="know" data-bs-dismiss="modal" class="float-end" value="我知道了">
+        </div>
+      </div>
+      <div class="modal-content">
+        <form id="forgotPwdform" method="post">
+          <div class="modal-body">
+            <div class="loginControl">
+              <label for="">選填其中一個：</label>
+              <input type="radio" name="choiceWay" value="信箱" checked><label for="">信箱</label><input type="radio"
+                name="choiceWay" value="帳號"><label for="">帳號</label>
+              <input id="accountF" type="text" placeholder="您的註冊帳號">
+              <input id="mailF" type="email" placeholder="您的註冊信箱">
+              <p id="forgotPwdtext"></p>
+            </div>
+          </div>
+          <div class="modal-footer clearfix">
+            <input id="forgotPwdsend" data-bs-dismiss="modal" type="submit" class="float-end" value="寄送驗證碼">
+            <input id="backTologin" type="button" class="float-start" value="返回登入">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- 購物車顯示 -->
+  <script src="../js/showCart.js"></script>
+  <!-- 登入畫面控制 -->
+  <script src="../js/login.js"></script>
+
+  <!-- 側邊欄按鈕 -->
+  <script>
+    $('.tablinks').on('click', function () {
+      // console.log($(this).index()) 
+      $('.tabcontent').removeClass('active');
+      $('.tabcontent').eq($(this).index()).addClass('active');
+    })
+  </script>
+  <!-- 點擊月曆的動作 -->
+  <script>
+    $('li').on('click', function () {
+      $('.calendar').removeClass('active')
+      $('.calendar').eq($(this).index()).addClass('active')
+    })
+  </script>
+
+  <!-- 新增行程的js(react) -->
+  <script type="text/babel" src="../js/calendar_react.js"></script>
+
+
+
+</body>
+
+</html>

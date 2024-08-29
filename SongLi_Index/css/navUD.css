@@ -1,0 +1,304 @@
+/* nav */
+.navbg {
+    background-color: #ffffff;
+    box-shadow: 2px 2px 8px #e8e8e8;
+}
+
+.navli {
+    font-size: 22px;
+    color: #b1b0ab;
+}
+
+.navli:hover {
+    font-size: 22px;
+    color: #535251;
+}
+
+.navbtn {
+    background-color: transparent;
+    border: none;
+    font-size: 22px;
+    color: #b1b0ab;
+    text-decoration: none;
+}
+
+.navbtn:hover {
+    color: #535251;
+}
+
+.userName {
+    background-color: transparent;
+    border: none;
+    font-size: 22px;
+    color: #757572;
+    text-decoration: none;
+    margin: 0;
+}
+
+.logo {
+    width: 180px;
+    margin-left: 50px;
+}
+
+.firstDiv {
+    margin-top: 120px;
+}
+
+/*login*/
+
+.modal-dialog>.modal-content {
+    display: none;
+    overflow: hidden;
+}
+
+.modal-dialog>.modal-content.active {
+    display: flex;
+}
+
+.modal-header {
+    border: none;
+    padding: 0;
+}
+
+.modal-title {
+    border: none;
+    background-color: transparent;
+    font-size: 22px;
+    width: 100%;
+    padding: 10px;
+    background-color: #A0937D;
+    color: white;
+
+    /* border-radius: 8px 0 0 0; */
+}
+
+.modal-title.active {
+    background-color: white;
+    color: #A0937D;
+}
+
+.modal-body.active {
+    display: block;
+    padding: 0;
+}
+
+.loginControl>input[type="text"],
+.loginControl>input[type="tel"],
+.loginControl>input[type="email"],
+.loginControl>input[type="date"],
+.loginControl>input[type="password"]{
+    width: 100%;
+    height: 40px;
+}
+.loginControl>label,
+.loginControl>input {
+    margin: 5px 0 5px 0;
+}
+
+#uPwdCorrectText,
+#uPwdText,
+#genderCheck,
+#accountCheck,
+#emailCheck {
+    margin: 0;
+    display: none;
+    color: red;
+}
+
+.loginControl>input[type="radio"]+label {
+    margin: 5px;
+}
+
+.loginControl {
+    margin: 5%;
+}
+
+.modal-footer.active {
+    display: block;
+    border: none;
+}
+
+.modal-body {
+    display: none;
+}
+
+.modal-footer {
+    display: none;
+    padding: 2%;
+}
+
+#login,
+#register,
+#forgotPwdsend {
+    border: none;
+    background-color: #698474;
+    color: white;
+    width: 100px;
+    line-height: 35px;
+    border-radius: 8px;
+
+}
+
+#backTologin {
+    border: none;
+    background-color: #A0937D;
+    color: white;
+    width: 100px;
+    line-height: 35px;
+    border-radius: 8px;
+
+}
+
+#accountF,
+#forgotPwdtext {
+    display: none;
+}
+
+#login:hover,
+#register:hover {
+    background-color: #566c5f;
+}
+
+#forgotPwd {
+    border: none;
+    background-color: transparent;
+    color: #949290;
+    margin: 5px;
+}
+
+#forgotPwd:hover {
+    color: #383837;
+}
+
+.mail {
+    width: 300px;
+    height: 400px;
+}
+
+#mailText {
+    margin: auto auto;
+    width: 480px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#know {
+    border: none;
+    background-color: #A0937D;
+    color: white;
+    width: 100px;
+    line-height: 35px;
+    border-radius: 8px;
+}
+
+/*footer*/
+footer {
+    padding: 20px 0 0 0;
+    background-color: #A0937D;
+    margin-top: 75px;
+}
+
+.footerDown {
+    display: flex;
+
+}
+
+.footerDown>.float-start {
+    width: 280px;
+}
+
+.footerDown>.float-start>a,
+.footerDown>.float-start>.indexInfo {
+    line-height: 35px;
+    text-decoration: none;
+    color: #292828;
+    margin-left: 15px;
+}
+
+.footerDown>.float-start>a:hover {
+    color: white;
+}
+
+.footerTitle {
+    font-size: 25px;
+    color: #1f1e1e;
+
+}
+
+.connect {
+    margin-right: 15%;
+}
+
+.connect>ul>li>a>i {
+    color: #353434;
+    font-size: 25px;
+}
+
+.connect>ul>li>a>i:hover {
+    color: white;
+}
+
+.connect>ul>li {
+    padding: 20px;
+}
+
+footer>li,
+.connect>ul>li {
+    text-decoration-style: solid;
+    list-style-type: none;
+}
+
+/*font*/
+.font_T_Bolder {
+    font-family: "Noto Serif TC", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    /* 900有點太粗了 */
+    font-style: normal;
+}
+
+.font_T_Bold {
+    font-family: "Noto Serif TC", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.font_T_Normal {
+    font-family: "Noto Serif TC", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.font_C_Normal {
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.font_C_Light {
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+#toTOP {
+    position: absolute;
+    position: fixed;
+    text-align: center;
+    align-content: center;
+    background-color: #DCA47C;
+    border-radius: 40px;
+    bottom: 20px;
+    right: 20px;
+    text-decoration: none;
+    width: 70px;
+    height: 70px;
+    color: #ffffff;
+}

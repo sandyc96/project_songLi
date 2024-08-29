@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>最新消息 | Song-Li</title>
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <!-- icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&display=swap"
+    rel="stylesheet" />
+  <!-- css -->
+  <link rel="stylesheet" href="../css/aboutNnews.css" />
+  <link rel="stylesheet" href="../css/cartIcon.css" />
+  <link rel="stylesheet" href="../css/navUD.css" />
+  <!-- jQ -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header class="fixed-top">
+    <nav class="navbar navbar-expand-lg navbg clearfix">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img src="../image/logo大專_上色.png" alt="" class="logo"></a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 180px;">
+            <li class="nav-item me-5 font_T_Bolder">
+              <a class="nav-link navli" href="./product/product.html">商品</a>
+            </li>
+            <li class="nav-item me-5 font_T_Bolder">
+              <a class="nav-link navli" href="./news.html">公告</a>
+            </li>
+            <li class="nav-item me-5 font_T_Bolder">
+              <a class="nav-link navli" href="./about.html">關於我們</a>
+            </li>
+            <li class="nav-item me-5 font_T_Bolder">
+              <a class="nav-link navli" href="./member.html">會員中心</a>
+            </li>
+          </ul>
+          <div class="float-end">
+            <h5 class="userName font_T_Bolder"></h5>
+          </div>
+          <div class="float-end navbtnSP">
+            <!-- <a href="../html/product/product.html#productList2" class="navbtn font_T_Bolder mx-2">訂閱</a>                        <button class="navbtn font_T_Bolder mx-2" id="loginRegBtn" data-bs-toggle="modal" -->
+            <button class="navbtn font_T_Bolder mx-2" id="loginRegBtn" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">登入/註冊</button>
+          </div>
+          <div class="icon-cart float-end position-relative">
+            <a href="./cart/cart.html" class="btn font_T_Bolder">
+              <i class="bi bi-cart3 fs-2"></i>
+              <span id="cartCount"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+
+  <div class="d-flex flex-row container justify-content-around w-80 firstDiv">
+    <ul class="d-flex flex-column w-30 fs-5 font_T_Normal sidebar_bg">
+      <li class="list-unstyled">
+        <a class="py-3" href="./news.html">最新消息</a>
+        <i id="newsSidebar" class="bi bi-chevron-down float-end pe-5" data-bs-toggle="collapse" href="#collapseNews"
+          aria-expanded="false" aria-controls="collapseNews"></i>
+        <div class="collapse" id="collapseNews"></div>
+      </li>
+
+      <li class="list-unstyled">
+        <a class="d-block py-2" href="./qna.html">Q & A</a>
+      </li>
+
+      <li class="list-unstyled">
+        <a class="py-3" data-bs-toggle="collapse" href="#collapsePolicy" aria-expanded="false"
+          aria-controls="collapsePolicy">頌裏政策<i class="bi bi-chevron-down float-end pe-5"></i></a>
+        <div class="collapse" id="collapsePolicy">
+          <a class="d-block" href="./shippingPolicy.html"><i class="fa-solid fa-truck ps-3 pe-2 py-2"></i>運送政策</a>
+          <a class="d-block" href="./returnPolicy.html"><i class="fa-solid fa-repeat ps-3 pe-2 py-2"></i>退換貨政策</a>
+          <a class="d-block" href="./privacyPolicy.html"><i
+              class="fa-regular fa-address-card ps-3 pe-2 py-2"></i>隱私權政策</a>
+        </div>
+      </li>
+    </ul>
+
+    <div id="newsGroup" class="d-flex flex-column w-70 text-start font_C_Light mt-3 px-4 pt-1">
+      <div class="h3 text-center text-decoration-underline font_T_Normal mt-3 pt-1">
+        最新消息
+      </div>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  </div>
+
+  <footer class="container-fluid clearfix">
+    <div class="footerDown justify-content-evenly">
+      <div class="float-start">
+        <p class="footerTitle font_T_Bold">店鋪資訊</p>
+        <p class="indexInfo font_C_Normal">電話：0923265860<br>
+          Email：bigzhuan0711@gmail.com<br>
+          時間：09:00~18:00</p>
+
+      </div>
+      <div class="float-start">
+        <p class="footerTitle font_T_Bold">頌裏政策</p>
+        <a class="font_C_Normal" href="./shippingPolicy.html">運送政策</a><br>
+        <a class="font_C_Normal" href="./returnPolicy.html">退換貨政策</a><br>
+        <a class="font_C_Normal" href="./privacyPolicy.html">隱私權政策</a>
+
+      </div>
+      <div class="float-start">
+        <p class="footerTitle font_T_Bold">顧客服務</p>
+        <a class="font_C_Normal" href="./qna.html">Q/A</a><br>
+        <!-- <a href="">訂購流程</a><br>
+            <a href="">花禮維護與照顧</a><br> -->
+        <a class="font_C_Normal" href="./news.html">訊息公告</a>
+      </div>
+    </div>
+    <div class="connect float-end">
+      <ul class="d-flex">
+        <li><a href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook"></i></a></li>
+        <li><a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a href="https://line.me/tw/"><i class="fa-brands fa-line"></i></a></li>
+      </ul>
+    </div>
+
+  </footer>
+
+  <!-- login&register -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content active">
+        <div class="modal-header">
+          <button class="modal-title active" id="exampleModalLabel">登入</button>
+          <button class="modal-title" id="exampleModalLabel">註冊</button>
+        </div>
+        <form id="loginForm" action="" method="get">
+          <div class="modal-body active">
+            <div class="loginControl">
+              <input id="account" type="text" placeholder="帳號"><br>
+              <input id="pwd" type="password" placeholder="密碼"><br>
+              <button id="forgotPwd" type="button">忘記密碼?</button>
+            </div>
+          </div>
+          <div class="modal-footer clearfix active">
+            <input id="login" data-bs-dismiss="modal" type="submit" class="float-end" value="登入">
+          </div>
+        </form>
+        <form id="registerForm" method="post">
+          <div class="modal-body">
+            <div class="loginControl">
+              <input type="text" maxlength="50" placeholder="姓名" name="uName" id="uName" required><br>
+              <label for="">生日：</label><input type="date" name="uBirth" id="uBirth" required><br>
+              <label for="">性別：</label>
+              <input type="radio" name="uGender" value="男"><label for="" class="px-1">男</label><input type="radio"
+                name="uGender" value="女"><label for="" class="px-1">女</label>
+              <label id="genderCheck"></label>
+              <input type="text" placeholder="帳號" name="uAccount" id="uAccount" minlength="3" maxlength="20" required>
+              <label id="accountCheck"></label>
+              <input type="email" placeholder="電子郵件地址" name="uEmail" id="uEmail" maxlength="255" required>
+              <label id="emailCheck"></label>
+              <label for="">是否開啟信箱提醒：</label>
+              <input type="radio" name="uChoice" value="是"><label for="" class="px-1">是</label><input type="radio"
+                name="uChoice" value="否" checked><label for="" class="px-1">否</label>
+
+              <input type="tel" placeholder="電話" name="uTel" id="uTel" maxlength="15" required><br>
+              <input type="password" placeholder="請輸入密碼" name="uPwd" id="uPwd" minlength="8" required><label
+                id="uPwdText"></label>
+              <input type="password" placeholder="請再次輸入密碼" id="uPwdCorrect"><br>
+              <label id="uPwdCorrectText"></label>
+            </div>
+          </div>
+          <!-- data-bs-dismiss="modal" -->
+          <div class="modal-footer clearfix">
+            <input id="register" type="submit" class="float-end" value="註冊">
+          </div>
+
+        </form>
+      </div>
+      <!-- 信箱驗證畫面 -->
+      <div class="modal-content">
+        <div class="mail">
+          <img src="../image/logo大專_上色.png" style="width: 200px; text-align: center;">
+          <div id="mailText"></div>
+          <input type="button" id="know" data-bs-dismiss="modal" class="float-end" value="我知道了">
+        </div>
+      </div>
+      <div class="modal-content">
+        <form id="forgotPwdform" method="post">
+          <div class="modal-body">
+            <div class="loginControl">
+              <label for="">選填其中一個：</label>
+              <input type="radio" name="choiceWay" value="信箱" checked><label for="">信箱</label><input type="radio"
+                name="choiceWay" value="帳號"><label for="">帳號</label>
+              <input id="accountF" type="text" placeholder="您的註冊帳號">
+              <input id="mailF" type="email" placeholder="您的註冊信箱">
+              <p id="forgotPwdtext"></p>
+            </div>
+          </div>
+          <div class="modal-footer clearfix">
+            <input id="forgotPwdsend" data-bs-dismiss="modal" type="submit" class="float-end" value="寄送驗證碼">
+            <input id="backTologin" type="button" class="float-start" value="返回登入">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- 購物車顯示 -->
+  <script src="../js/showCart.js"></script>
+  <!-- 登入畫面控制 -->
+  <script src="../js/login.js"></script>
+
+  <!-- 取得資料測試 -->
+  <script>
+    function showNews() {
+      // const urlParams = new URLSearchParams(window.location.search);
+      // const newsId = urlParams.get('nClass');
+
+      $.ajax({
+        url: '../php/news.php/news',
+        // method: 'GET',
+        contentType: 'application/json',
+      }).done(function (newslist) {
+        $('#newsGroup').append(
+          `<div class="qaLine d-flex flex-row mt-3">
+                <img src=${newslist[newslist.length - 1].nImage} class="w-60" />
+              <div class="d-flex flex-column w-40 ps-4 justify-content-evenly">
+                <div class="d-flex flex-row">
+                  <a class="text-center newsClass px-2" data-class="${newslist[newslist.length - 1].nClass
+          }" href="./news.html?nClass=${newslist[newslist.length - 1].nClass
+          }">${newslist[newslist.length - 1].nClass}</a>
+                  <span class="ms-auto">${newslist[newslist.length - 1].nDate
+          }</span><br />
+                </div>
+                <a class="mt-1 h5 fw-normal" data-nid="${newslist[newslist.length - 1].nid
+          }" href="./oneNews.html?nid=${newslist[newslist.length - 1].nid
+          }">${newslist[newslist.length - 1].nTitle}</a>
+                <p>${newslist[newslist.length - 1].nText}</p>
+                <a class="text-end"  href="./oneNews.html?nid=${newslist[newslist.length - 1].nid
+          }">MORE<i class="fa-solid fa-forward-fast ps-2"></i></a>
+              </div>
+            </div>`
+          // console.log($('a.h5').attr('data-nid'));
+        );
+
+        for (let i = newslist.length - 1; i > 0; i--) {
+          $('#newsGroup').append(
+            `<div class="py-4 qaLine">
+                <span class="newsDate">${newslist[i - 1].nDate}</span>
+                <a class="text-center mx-2 px-2 newsClass" data-class="${newslist[i - 1].nClass
+            }" href="./news.html?nClass=${newslist[i - 1].nClass}">${newslist[i - 1].nClass
+            }</a>
+                <a class="newsTitle h5" data-nid="${newslist[i - 1].nid
+            }" href="./oneNews.html?nid=${newslist[i - 1].nid}">${newslist[i - 1].nTitle
+            }</a>
+              </div>`
+          );
+          // console.log($('a.newsTitle').attr('data-nid'));
+        }
+      });
+    }
+  </script>
+
+  <!-- cursor -->
+  <script>
+    $('#collapseNews, #firstNews, #newsList, #newsGroup').on(
+      'mouseover',
+      'a, div>div>div>a, div>a.newsClass, div>div>div>a.newsClass',
+      function () {
+        $(this).css('cursor', 'pointer');
+      }
+    );
+
+    $('#newsSidebar').hover(function () {
+      $(this).css('cursor', 'pointer');
+    });
+  </script>
+
+  <!-- sidebar分類名稱 -->
+  <script>
+    $('#newsSidebar').on('click', function () {
+      $.ajax({
+        url: '../php/news.php/news',
+        contentType: 'application/json',
+      }).done(function (temp) {
+        console.log('temp', temp);
+
+        let insertedCategory = new Set();
+        $('#collapseNews').empty();
+        temp.forEach((element) => {
+          if (!insertedCategory.has(element.nClass)) {
+            $('#collapseNews').append(
+              `<a class="d-block" data-class=${element.nClass} href="./news.html?nClass=${element.nClass}">
+                  <i class="fa-solid fa-feather ps-3 pe-2 py-2"></i>${element.nClass}
+                </a>`
+            );
+            insertedCategory.add(element.nClass);
+          }
+        });
+      });
+    });
+  </script>
+
+  <!-- sidebar分類內容清單 -->
+  <script>
+    //先寫在外面
+    // const urlParams = new URLSearchParams(window.location.search);
+    // let nClass = urlParams.get('nClass');
+    let getSessionnClass = sessionStorage.getItem('nClass');
+    console.log(getSessionnClass);
+    let nClass;
+    if (getSessionnClass != null) {
+      nClass = getSessionnClass;
+      getNews(nClass);
+    } else {
+      showNews();
+    }
+    $('#collapseNews, #newsGroup').on(
+      'click',
+      'a.d-block, div>div>div>a.newsClass, div>a.newsClass',
+      function newsPost(event) {
+        event.preventDefault();
+
+        //第一個news.html=>null 其他news.html?nClass=xxx=>才有東西
+        if (nClass != $(this).attr('data-class')) {
+          nClass = $(this).attr('data-class');
+        }
+        // console.log(nClass);
+        getNews(nClass);
+        sessionStorage.removeItem('nClass');
+      }
+    );
+    function getNews(nClass) {
+      $.ajax({
+        url: '../php/news.php/post',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ nClass: nClass }),
+
+        // success: function (data) {
+        //   console.log(data);
+        // },
+        error: function (error, a, b) {
+          console.log(error, a, b);
+        },
+      }).done(function (newsPost) {
+        $('#newsGroup').empty();
+        console.log(newsPost);
+
+        $('#newsGroup').append(
+          `<div class="h3 text-center text-decoration-underline font_T_Normal mt-3 pt-1" data-class="${newsPost[0].nClass}">${newsPost[0].nClass}</div>`
+        );
+        $('#newsGroup').append(
+          `<div class="qaLine d-flex flex-row mt-3">
+                <img src=${newsPost[newsPost.length - 1].nImage} class="w-60" />
+                <div class="d-flex flex-column w-40 ps-4 justify-content-evenly">
+                  <div class="d-flex flex-row">
+                    <a class="text-center newsClass px-2" data-class="${newsPost[newsPost.length - 1].nClass
+          }" href="./news.html?nClass=${newsPost[newsPost.length - 1].nClass
+          }">${newsPost[newsPost.length - 1].nClass}</a>
+                    <span class="ms-auto">${newsPost[newsPost.length - 1].nDate
+          }</span>
+                    <br />
+                  </div>
+                  <a class="mt-1 h5 fw-normal" data-nid="${newsPost[newsPost.length - 1].nid
+          }" href="./oneNews.html?nid=${newsPost[newsPost.length - 1].nid
+          }">${newsPost[newsPost.length - 1].nTitle}</a>
+                  <p>${newsPost[newsPost.length - 1].nText}</p>
+                  <a class="text-end"  href="./oneNews.html?nid=${newsPost[newsPost.length - 1].nid
+          }">MORE<i class="fa-solid fa-forward-fast ps-2"></i>
+                  </a>
+                </div>
+              </div>`
+        );
+
+        for (let i = newsPost.length - 1; i > 0; i--) {
+          $('#newsGroup').append(
+            `<div class="py-4 qaLine">
+                  <span class="newsDate"> ${newsPost[i - 1].nDate}</span>
+                  <a class="text-center mx-2 px-2 newsClass" data-class="${newsPost[i - 1].nClass
+            }" href="./news.html?nClass=${newsPost[i - 1].nClass}">${newsPost[i - 1].nClass
+            }</a>
+                  <a class="newsTitle h5" data-nid="${newsPost[i - 1].nid
+            }" href="./oneNews.html?nid=${newsPost[i - 1].nid}">${newsPost[i - 1].nTitle
+            }</a>
+                </div>`
+          );
+        }
+      });
+    }
+    $('a.py-3').on('click', function () {
+      sessionStorage.removeItem('nClass');
+    });
+  </script>
+</body>
+
+</html>
