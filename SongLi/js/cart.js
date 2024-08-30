@@ -64,17 +64,27 @@ $(document).ready(function () {
                         <div class="d-flex justify-content-between align-items-center flex-wrap topBottom">
                             <div class="d-flex align-items-center mb-2 mb-md-0">
                                 <div>
-                                    <h6 class="my-0 text_title fs-5">${item.name}</h6>
-                                    <small class="text-muted text_title fs-6">單價: $${item.price}</small>
+                                    <h6 class="my-0 text_title fs-5">${
+                                      item.name
+                                    }</h6>
+                                    <small class="text-muted text_title fs-6">單價: $${
+                                      item.price
+                                    }</small>
                                 </div>
                             </div>
                             <div class="d-flex align-items-center w-40 clearfix text_title fs-5">
                                 <div class="quantity-control w-100">
-                                    數量：<span class="quantity">${item.quantity}</span>
+                                    數量：<span class="quantity">${
+                                      item.quantity
+                                    }</span>
                                 </div>
                                 <div class="me-3 text-end w-100">
-                                    小計： $<span class="item-subtotal">${item.price * item.quantity}</span>
-                                    <button class="btn btn-danger remove-item" data-id="${item.id}">
+                                    小計： $<span class="item-subtotal">${
+                                      item.price * item.quantity
+                                    }</span>
+                                    <button class="btn btn-danger remove-item" data-id="${
+                                      item.id
+                                    }">
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </div>
@@ -88,22 +98,38 @@ $(document).ready(function () {
                     <li class="list-group-item">
                         <div class="d-flex justify-content-between align-items-center flex-wrap">
                             <div class="d-flex align-items-center mb-2 mb-md-0">
-                                <img src="${item.image}" alt="${item.name}" class="me-3" style="width: 90px; height: 90px; object-fit: cover;">
+                                <img src="${item.image}" alt="${
+            item.name
+          }" class="me-3" style="width: 90px; height: 90px; object-fit: cover;">
                                 <div>
-                                    <h6 class="my-0 text_title fs-5">${item.name}</h6>
-                                    <small class="text-muted text_title fs-6">單價: $${item.price}</small>
+                                    <h6 class="my-0 text_title fs-5">${
+                                      item.name
+                                    }</h6>
+                                    <small class="text-muted text_title fs-6">單價: $${
+                                      item.price
+                                    }</small>
                                 </div>
                             </div>
                             <div class="d-flex align-items-center w-40 clearfix text_title fs-5">
                                 <div class="quantity-control w-100">
                                     數量：
-                                    <button class="btn btn-sm btn-outline-secondary decrease-quantity text_title fs-5" data-id="${item.id}">-</button>
-                                    <span class="quantity">${item.quantity}</span>
-                                    <button class="btn btn-sm btn-outline-secondary increase-quantity text_title fs-5" data-id="${item.id}">+</button>
+                                    <button class="btn btn-sm btn-outline-secondary decrease-quantity text_title fs-5" data-id="${
+                                      item.id
+                                    }">-</button>
+                                    <span class="quantity">${
+                                      item.quantity
+                                    }</span>
+                                    <button class="btn btn-sm btn-outline-secondary increase-quantity text_title fs-5" data-id="${
+                                      item.id
+                                    }">+</button>
                                 </div>
                                 <div class="me-3 text-end w-100">
-                                    小計： $<span class="item-subtotal">${item.price * item.quantity}</span>
-                                    <button class="btn btn-danger remove-item" data-id="${item.id}">
+                                    小計： $<span class="item-subtotal">${
+                                      item.price * item.quantity
+                                    }</span>
+                                    <button class="btn btn-danger remove-item" data-id="${
+                                      item.id
+                                    }">
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </div>
@@ -149,8 +175,8 @@ $(document).ready(function () {
     } else {
       $('#receiverName, #receiverPhone, #receiverEmail').val('');
       $('#receiverAddress3').val('');
-      $('#receiverAddress1').val('請選擇縣市')
-      $('#receiverAddress2').val('請選擇鄉鎮市區')
+      $('#receiverAddress1').val('請選擇縣市');
+      $('#receiverAddress2').val('請選擇鄉鎮市區');
     }
   });
 
@@ -258,61 +284,77 @@ $(document).ready(function () {
   //住址導入
   function addAddress() {
     $.ajax({
-      url: '../../JSON/location.JSON',
+      url: '../JSON/location.JSON',
       success: function (data) {
         for (let i = 0; i < data.length; i++) {
-          $('#senderCity').append(`<option value="${data[i].location}">${data[i].location}</option>`)
-          $('#receiverAddress1').append(`<option value="${data[i].location}">${data[i].location}</option>`)
+          $('#senderCity').append(
+            `<option value="${data[i].location}">${data[i].location}</option>`
+          );
+          $('#receiverAddress1').append(
+            `<option value="${data[i].location}">${data[i].location}</option>`
+          );
         }
         $('#senderCity').on('change', function () {
-          $('#senderCountry').empty()
-          $('#receiverAddress2').empty()
-          $('#senderCountry').append(`<option value="請選擇鄉鎮市區">請選擇鄉鎮市區</option>`)
-          $('#receiverAddress2').append(`<option value="請選擇鄉鎮市區">請選擇鄉鎮市區</option>`)
+          $('#senderCountry').empty();
+          $('#receiverAddress2').empty();
+          $('#senderCountry').append(
+            `<option value="請選擇鄉鎮市區">請選擇鄉鎮市區</option>`
+          );
+          $('#receiverAddress2').append(
+            `<option value="請選擇鄉鎮市區">請選擇鄉鎮市區</option>`
+          );
           for (let i = 0; i < data.length; i++) {
             if ($(this).val() == data[i].location) {
               for (let j = 0; j < data[i].district.length; j++) {
-                $('#senderCountry').append(`<option value="${data[i].district[j]}">${data[i].district[j]}</option>`)
-                $('#receiverAddress2').append(`<option value="${data[i].district[j]}">${data[i].district[j]}</option>`)
+                $('#senderCountry').append(
+                  `<option value="${data[i].district[j]}">${data[i].district[j]}</option>`
+                );
+                $('#receiverAddress2').append(
+                  `<option value="${data[i].district[j]}">${data[i].district[j]}</option>`
+                );
               }
             }
           }
-        })
+        });
         $('#receiverAddress1').on('change', function () {
-          $('#receiverAddress2').empty()
-          $('#receiverAddress2').append(`<option value="請選擇鄉鎮市區">請選擇鄉鎮市區</option>`)
+          $('#receiverAddress2').empty();
+          $('#receiverAddress2').append(
+            `<option value="請選擇鄉鎮市區">請選擇鄉鎮市區</option>`
+          );
           for (let i = 0; i < data.length; i++) {
             if ($(this).val() == data[i].location) {
               for (let j = 0; j < data[i].district.length; j++) {
-                $('#receiverAddress2').append(`<option value="${data[i].district[j]}">${data[i].district[j]}</option>`)
+                $('#receiverAddress2').append(
+                  `<option value="${data[i].district[j]}">${data[i].district[j]}</option>`
+                );
               }
             }
           }
-        })
-      }
-    })
+        });
+      },
+    });
   }
-  addAddress()
+  addAddress();
   //會員資料導入
   function userInfo() {
     $.ajax({
-      url: '../../php/cartInorder.php/userinfo',
+      url: '../php/cartInorder.php/userinfo',
       method: 'post',
       contentType: 'application/json',
       data: JSON.stringify({
-        uAccount: sessionStorage.getItem('User')
+        uAccount: sessionStorage.getItem('User'),
       }),
       success: function (data) {
-        $('#senderName').val(data.uName)
-        $('#senderPhone').val(data.uTel)
-        $('#senderEmail').val(data.uEmail)
-      }
-    })
+        $('#senderName').val(data.uName);
+        $('#senderPhone').val(data.uTel);
+        $('#senderEmail').val(data.uEmail);
+      },
+    });
   }
-  userInfo()
+  userInfo();
   //資料抓進資料庫
   function order() {
-    let time = new Date()
+    let time = new Date();
 
     let orderData = {
       uAccount: sessionStorage.getItem('User'),
@@ -321,38 +363,48 @@ $(document).ready(function () {
       shipName: $('#receiverName').val(),
       shipTel: $('#receiverPhone').val(),
       shipEmail: $('#receiverEmail').val(),
-      shippingAddress: `${$('#receiverAddress1').val()}${$('#receiverAddress2').val()}${$('#receiverAddress3').val()}`,
-      billingAddress: `${$('#senderCity').val()}${$('#senderCountry').val()}${$('#senderAddress').val()}`,
-      oStatus: '備貨中，預計3日內出貨'
-    }
-    let orderList = cart.map(item => {
+      shippingAddress: `${$('#receiverAddress1').val()}${$(
+        '#receiverAddress2'
+      ).val()}${$('#receiverAddress3').val()}`,
+      billingAddress: `${$('#senderCity').val()}${$('#senderCountry').val()}${$(
+        '#senderAddress'
+      ).val()}`,
+      oStatus: '備貨中，預計3日內出貨',
+    };
+    let orderList = cart.map((item) => {
       return {
         pId: item.id,
         quantity: item.quantity,
         unitPrice: item.price,
         TotalPrice: item.quantity * item.price,
-        cardRecipient: (item.id == 'thankyou' || item.id == 'birthday' || item.id == 'love') ? $('#giftRecipientName').val() : 'x',
-        cardSender: (item.id == 'thankyou' || item.id == 'birthday' || item.id == 'love') ? $('#giftSenderName').val() : 'x',
-        cardContent: (item.id == 'thankyou' || item.id == 'birthday' || item.id == 'love') ? $('#giftMessage').val() : 'x'
+        cardRecipient:
+          item.id == 'thankyou' || item.id == 'birthday' || item.id == 'love'
+            ? $('#giftRecipientName').val()
+            : 'x',
+        cardSender:
+          item.id == 'thankyou' || item.id == 'birthday' || item.id == 'love'
+            ? $('#giftSenderName').val()
+            : 'x',
+        cardContent:
+          item.id == 'thankyou' || item.id == 'birthday' || item.id == 'love'
+            ? $('#giftMessage').val()
+            : 'x',
       };
     });
-    let orderL = {orderList:orderList}
+    let orderL = { orderList: orderList };
     let order = Object.assign({}, orderData, orderL);
     console.log(order);
-    
+
     $.ajax({
-      url: '../../php/cartInorder.php/order',
+      url: '../php/cartInorder.php/order',
       method: 'post',
       contentType: 'application/json',
-      data: JSON.stringify(order)
-    })
-
+      data: JSON.stringify(order),
+    });
   }
   $('#checkoutBtn').on('click', function () {
-    order()
-    localStorage.removeItem('cart')
-    cartCount.innerHTML = 0
-
-  })
-
+    order();
+    localStorage.removeItem('cart');
+    cartCount.innerHTML = 0;
+  });
 });

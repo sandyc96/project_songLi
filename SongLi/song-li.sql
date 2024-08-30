@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-08-25 13:23:13
+-- 產生時間： 2024-08-30 16:11:26
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.2.12
 
@@ -36,16 +36,6 @@ CREATE TABLE `contactus` (
   `msgClass` varchar(20) NOT NULL,
   `msg` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- 傾印資料表的資料 `contactus`
---
-
-INSERT INTO `contactus` (`cid`, `uName`, `uGender`, `uTel`, `uEmail`, `msgClass`, `msg`) VALUES
-(1, '王小明', '先生', '0912345678', '', '訂單相關問題', '請問有現貨嗎?'),
-(2, '王小美', '小姐', '0912345678', '', '運送相關問題', '請問可以超取嗎?'),
-(3, '王小美', '小姐', '0912334444', '', '付款相關問題', '請問可以貨到付款嗎?'),
-(4, '王小美', '小姐', '0912334455', '', '付款相關問題', '請問可以貨到付款嗎?');
 
 -- --------------------------------------------------------
 
@@ -111,15 +101,6 @@ CREATE TABLE `orderitems` (
   `TotalPrice` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- 傾印資料表的資料 `orderitems`
---
-
-INSERT INTO `orderitems` (`oItemId`, `oId`, `pId`, `oQuantity`, `cardRecipient`, `cardSender`, `cardContent`, `UnitPrice`, `TotalPrice`) VALUES
-(1, 1, 'F1', 1, 'x', 'x', 'x', 1280, 1280),
-(2, 1, 'F2', 1, 'x', 'x', 'x', 890, 890),
-(3, 1, 'thankyou', 1, '爸爸', '我', '父親節快樂', 30, 30);
-
 -- --------------------------------------------------------
 
 --
@@ -138,13 +119,6 @@ CREATE TABLE `orders` (
   `billingAddress` varchar(255) NOT NULL,
   `oStatus` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- 傾印資料表的資料 `orders`
---
-
-INSERT INTO `orders` (`oId`, `uAccount`, `oDate`, `totalAmount`, `shipName`, `shipTel`, `shipEmail`, `shippingAddress`, `billingAddress`, `oStatus`) VALUES
-(1, 'melody', '2024-08-25', 2200, '許乃云', '0966381829', 'melody321003@gmail.com', '臺北市北投區吉利街257巷3弄20號1樓', '臺北市北投區吉利街257巷3弄20號1樓', '備貨中，預計3日內出貨');
 
 -- --------------------------------------------------------
 
@@ -166,22 +140,22 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`productId`, `productName`, `productPrice`, `productText`, `productImg1`, `productImg2`) VALUES
-('F1', '紅玫瑰鮮花束', 1280, '紅玫瑰花語：代表熱戀、熱愛、真心，紅色的玫瑰也代表心的顏色、火焰的顏色，用以象徵真心、火熱的心。', '../../image/product_images/flowers.images/F1-1-rose.png', '../../image/product_images/flowers.images/F1-2-rose.png'),
-('F2', '奶油向日葵鮮花束', 890, '向日葵花語：勇敢追逐自己的夢想', '../../image/product_images/flowers.images/F2-1-sun.png', '../../image/product_images/flowers.images/F2-2-sun.png'),
-('F3', '藍色繡球花鮮花束', 820, '繡球花花語：繡球花是由一朵朵小花聚集而成，有著「家族」、「友愛」、「團聚」的花語。', '../../image/product_images/flowers.images/F3-1-blueball.png', '../../image/product_images/flowers.images/F3-2-blueball.png'),
-('F4', '康乃馨鮮花束', 780, '康乃馨花語：母愛、親情、熱情、魅力、真情、溫馨的祝福、慈祥、寬容', '../../image/product_images/flowers.images/F4-1-mother.png', '../../image/product_images/flowers.images/F4-2-monther.png'),
-('L1', '法式奶茶質感永生花束', 1080, '【花材】進口永生玫瑰、永生繡球、永生乾燥花材等', '../../image/product_images/life_images/L1-1-milktea.png', '../../image/product_images/life_images/L1-2-milktea.png'),
-('L2', '暖暖的夕陽永生盆花', 1280, '【花材】進口永生玫瑰、永生百日菊、永生乾燥花材等', '../../image/product_images/life_images/L2-1-sun.png', '../../image/product_images/life_images/L2-2-sun.png'),
-('L3', '永生花蛋糕花', 990, '【花材】進口永生玫瑰、永生繡球花、永生旱雪蓮花、永生乾燥花材等', '../../image/product_images/life_images/L3-1-birthday.png', '../../image/product_images/life_images/L3-2-birthday.png'),
-('L4', '永生花聖誕樹', 780, '【花材】永生汗雪蓮、永生松果、永生繡球花、永生乾燥花材等', '../../image/product_images/life_images/L4-1-tree.png', '../../image/product_images/life_images/L4-2-tree.png'),
-('S1', '訂閱制-每週1花束', 999, '【購買數量1 = 1期，每期7天，以此類推】\r\n花材種類：使用每週一於花市採購的新鮮花卉，依照季節變換更替花種。\r\n配送日期：每週二 10:00 - 16:00 配送。如需指定配送時間，會另外收取專車配送費，歡迎來訊洽詢。\r\n備註：此服務不提供個性化選擇花材。', '../../image/product_images/subscribe.images/S1-1-week.png', '../../image/product_images/subscribe.images/S1-2-week.png'),
-('S2', '訂閱制-每月1花束', 999, '【購買數量1 = 1期，每期30天，以此類推】\r\n花材種類：使用每週一於花市採購的新鮮花卉，依照季節變換更替花種。\r\n配送日期：每月第二週 週二 10:00 - 16:00 配送。如需指定配送時間，會另外收取專車配送費，歡迎來訊洽詢。\r\n備註：此服務不提供個性化選擇花材。', '../../image/product_images/subscribe.images/S1-1-week.png', '../../image/product_images/subscribe.images/S1-2-week.png'),
-('S3', '訂閱制-每週1盆花', 1299, '【購買數量1 = 1期，每期7天，以此類推】\r\n花材種類：使用每週一於花市採購的新鮮花卉，依照季節變換更替花種。\r\n配送日期：每週二 10:00 - 16:00 配送。如需指定配送時間，會另外收取專車配送費，歡迎來訊洽詢。\r\n備註：此服務不提供個性化選擇花材。', '../../image/product_images/subscribe.images/S2-1-pot.png', '../../image/product_images/subscribe.images/S2-1-pot.png'),
-('S4', '訂閱制-每月1盆花', 1299, '【購買數量1 = 1期，每期30天，以此類推】\r\n花材種類：使用每週一於花市採購的新鮮花卉，依照季節變換更替花種。\r\n配送日期：每月第二週 週二 10:00 - 16:00 配送。如需指定配送時間，會另外收取專車配送費，歡迎來訊洽詢。\r\n備註：此服務不提供個性化選擇花材。', '../../image/product_images/subscribe.images/S2-1-pot.png', '../../image/product_images/subscribe.images/S2-2-pot.png'),
-('T1', '手作花瓶/鑲嵌玻璃', 520, '焊錫會因接觸空氣氧化而產生變化，尤其染銅色變化最大，從亮銅>古銅>直至深褐色，所以不會跟照片完全相同呦。', '../../image/product_images/goods_images/G1-glass.png', '../../image/product_images/goods_images/G1-glass.png'),
-('T2', '試管花器相框組', 480, '獨特的木架設計，將玻璃花瓶和木質相框完美組合，不管是乾燥花或水耕植物都可以直接放進試管玻璃中；木架表面上漆，除了能延長木架的使用期限，也能讓木紋更加清晰光亮，容易清潔。', '../../image/product_images/goods_images/G2-glass.png', '../../image/product_images/goods_images/G2-glass.png'),
-('T3', '精美透明提袋', 65, '精美透明提袋', '../../image/product_images/goods_images/G3-bag.png', '../../image/product_images/goods_images/G3-bag.png'),
-('T4', '櫥窗提袋', 80, '櫥窗提袋', '../../image/product_images/goods_images/G4-bag.png', '../../image/product_images/goods_images/G4-bag.png');
+('F1', '紅玫瑰鮮花束', 1280, '紅玫瑰花語：代表熱戀、熱愛、真心，紅色的玫瑰也代表心的顏色、火焰的顏色，用以象徵真心、火熱的心。', '../image/product_images/flowers.images/F1-1-rose.png', '../image/product_images/flowers.images/F1-2-rose.png'),
+('F2', '奶油向日葵鮮花束', 1080, '向日葵花語：勇敢追逐自己的夢想', '../image/product_images/flowers.images/F2-1-sun.png', '../image/product_images/flowers.images/F2-2-sun.png'),
+('F3', '藍色繡球花鮮花束', 820, '繡球花花語：繡球花是由一朵朵小花聚集而成，有著「家族」、「友愛」、「團聚」的花語。', '../image/product_images/flowers.images/F3-1-blueball.png', '../image/product_images/flowers.images/F3-2-blueball.png'),
+('F4', '康乃馨鮮花束', 780, '康乃馨花語：母愛、親情、熱情、魅力、真情、溫馨的祝福、慈祥、寬容', '../image/product_images/flowers.images/F4-1-mother.png', '../image/product_images/flowers.images/F4-2-monther.png'),
+('L1', '法式奶茶質感永生花束', 1080, '【花材】進口永生玫瑰、永生繡球、永生乾燥花材等', '../image/product_images/life_images/L1-1-milktea.png', '../image/product_images/life_images/L1-2-milktea.png'),
+('L2', '暖暖的夕陽永生盆花', 1280, '【花材】進口永生玫瑰、永生百日菊、永生乾燥花材等', '../image/product_images/life_images/L2-1-sun.png', '../image/product_images/life_images/L2-2-sun.png'),
+('L3', '永生花蛋糕花', 990, '【花材】進口永生玫瑰、永生繡球花、永生旱雪蓮花、永生乾燥花材等', '../image/product_images/life_images/L3-1-birthday.png', '../image/product_images/life_images/L3-2-birthday.png'),
+('L4', '永生花聖誕樹', 780, '【花材】永生汗雪蓮、永生松果、永生繡球花、永生乾燥花材等', '../image/product_images/life_images/L4-1-tree.png', '../image/product_images/life_images/L4-2-tree.png'),
+('S1', '訂閱制-每週1花束', 999, '【購買數量1 = 1期，每期7天，以此類推】\r\n花材種類：使用每週一於花市採購的新鮮花卉，依照季節變換更替花種。\r\n配送日期：每週二 10:00 - 16:00 配送。如需指定配送時間，會另外收取專車配送費，歡迎來訊洽詢。\r\n備註：此服務不提供個性化選擇花材。', '../image/product_images/subscribe.images/S1-1-week.png', '../image/product_images/subscribe.images/S1-2-week.png'),
+('S2', '訂閱制-每月1花束', 999, '【購買數量1 = 1期，每期30天，以此類推】\r\n花材種類：使用每週一於花市採購的新鮮花卉，依照季節變換更替花種。\r\n配送日期：每月第二週 週二 10:00 - 16:00 配送。如需指定配送時間，會另外收取專車配送費，歡迎來訊洽詢。\r\n備註：此服務不提供個性化選擇花材。', '../image/product_images/subscribe.images/S1-1-week.png', '../image/product_images/subscribe.images/S1-2-week.png'),
+('S3', '訂閱制-每週1盆花', 1299, '【購買數量1 = 1期，每期7天，以此類推】\r\n花材種類：使用每週一於花市採購的新鮮花卉，依照季節變換更替花種。\r\n配送日期：每週二 10:00 - 16:00 配送。如需指定配送時間，會另外收取專車配送費，歡迎來訊洽詢。\r\n備註：此服務不提供個性化選擇花材。', '../image/product_images/subscribe.images/S2-1-pot.png', '../image/product_images/subscribe.images/S2-1-pot.png'),
+('S4', '訂閱制-每月1盆花', 1299, '【購買數量1 = 1期，每期30天，以此類推】\r\n花材種類：使用每週一於花市採購的新鮮花卉，依照季節變換更替花種。\r\n配送日期：每月第二週 週二 10:00 - 16:00 配送。如需指定配送時間，會另外收取專車配送費，歡迎來訊洽詢。\r\n備註：此服務不提供個性化選擇花材。', '../image/product_images/subscribe.images/S2-1-pot.png', '../image/product_images/subscribe.images/S2-2-pot.png'),
+('T1', '手作花瓶/鑲嵌玻璃', 520, '焊錫會因接觸空氣氧化而產生變化，尤其染銅色變化最大，從亮銅>古銅>直至深褐色，所以不會跟照片完全相同呦。', '../image/product_images/goods_images/G1-glass.png', '../image/product_images/goods_images/G1-glass.png'),
+('T2', '試管花器相框組', 480, '獨特的木架設計，將玻璃花瓶和木質相框完美組合，不管是乾燥花或水耕植物都可以直接放進試管玻璃中；木架表面上漆，除了能延長木架的使用期限，也能讓木紋更加清晰光亮，容易清潔。', '../image/product_images/goods_images/G2-glass.png', '../image/product_images/goods_images/G2-glass.png'),
+('T3', '精美透明提袋', 65, '精美透明提袋', '../image/product_images/goods_images/G3-bag.png', '../image/product_images/goods_images/G3-bag.png'),
+('T4', '櫥窗提袋', 80, '櫥窗提袋', '../image/product_images/goods_images/G4-bag.png', '../image/product_images/goods_images/G4-bag.png');
 
 -- --------------------------------------------------------
 
@@ -326,7 +300,7 @@ ALTER TABLE `verification`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `contactus`
 --
 ALTER TABLE `contactus`
-  MODIFY `cid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cid` int(50) NOT NULL AUTO_INCREMENT;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `member_calendar`
@@ -338,13 +312,13 @@ ALTER TABLE `member_calendar`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `orderitems`
 --
 ALTER TABLE `orderitems`
-  MODIFY `oItemId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `oItemId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `oId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `oId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `qna`
@@ -356,7 +330,7 @@ ALTER TABLE `qna`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `userinfo`
 --
 ALTER TABLE `userinfo`
-  MODIFY `uId` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `uId` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,11 +1,9 @@
-新功能！鍵盤快速鍵 … Google
-雲端硬碟鍵盤快速鍵已更新，可讓你透過首字母導覽功能找到所需項目 qna.html
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Q & A | Song-Li</title>
+    <title>最新消息 | Song-Li</title>
     <!-- bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -18,13 +16,6 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
-    <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&display=swap"
-      rel="stylesheet"
-    />
     <!-- icon -->
     <link
       rel="stylesheet"
@@ -36,6 +27,13 @@
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&display=swap"
+      rel="stylesheet"
     />
     <!-- css -->
     <link rel="stylesheet" href="../css/aboutNnews.css" />
@@ -62,7 +60,7 @@
               style="margin-left: 180px"
             >
               <li class="nav-item me-5 font_T_Bolder">
-                <a class="nav-link navli" href="./product/product.html">商品</a>
+                <a class="nav-link navli" href="./product.html">商品</a>
               </li>
               <li class="nav-item me-5 font_T_Bolder">
                 <a class="nav-link navli" href="./news.html">公告</a>
@@ -78,7 +76,7 @@
               <h5 class="userName font_T_Bolder"></h5>
             </div>
             <div class="float-end navbtnSP">
-              <!-- <a href="../html/product/product.html#productList2" class="navbtn font_T_Bolder mx-2">訂閱</a>                        <button class="navbtn font_T_Bolder mx-2" id="loginRegBtn" data-bs-toggle="modal" -->
+              <!-- <a href="../html/product.html#productList2" class="navbtn font_T_Bolder mx-2">訂閱</a>                        <button class="navbtn font_T_Bolder mx-2" id="loginRegBtn" data-bs-toggle="modal" -->
               <button
                 class="navbtn font_T_Bolder mx-2"
                 id="loginRegBtn"
@@ -89,7 +87,7 @@
               </button>
             </div>
             <div class="icon-cart float-end position-relative">
-              <a href="./cart/cart.html" class="btn font_T_Bolder">
+              <a href="./cart.html" class="btn font_T_Bolder">
                 <i class="bi bi-cart3 fs-2"></i>
                 <span id="cartCount"></span>
               </a>
@@ -98,6 +96,7 @@
         </div>
       </nav>
     </header>
+
     <div class="d-flex flex-row container justify-content-around w-80 firstDiv">
       <ul class="d-flex flex-column w-30 fs-5 font_T_Normal sidebar_bg">
         <li class="list-unstyled">
@@ -141,20 +140,16 @@
         </li>
       </ul>
 
-      <div
-        class="d-flex flex-column w-70 text-start font_C_Light mt-3 px-4 pt-1"
-      >
+      <div class="d-flex flex-column w-70 mt-3 text-start font_C_Light">
         <div
-          class="h3 text-center text-decoration-underline font_T_Normal mt-3 pt-1"
-        >
-          常見問題
-        </div>
-        <div id="qaList"></div>
+          id="oneNews"
+          class="d-flex flex-column w-100 mt-3 pt-1 ps-4 justify-content-evenly"
+        ></div>
         <div id="temp">
-          <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-          <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+          <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+          <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         </div>
-        <br /><br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br />
       </div>
     </div>
 
@@ -382,80 +377,58 @@
         </div>
       </div>
     </div>
-
     <!-- 購物車顯示 -->
     <script src="../js/showCart.js"></script>
-
     <!-- 登入畫面控制 -->
     <script src="../js/login.js"></script>
 
-    <!-- 點擊+旋轉展開and變成- -->
+    <!-- 取得資料庫資料 -->
     <script>
-      $('#qaList').on('click', 'div>a>i', function () {
-        $(this).toggleClass('bi-patch-plus');
-        $(this).toggleClass('bi-patch-minus');
-        $(this).toggleClass('myZoom');
-      });
-      $('#qaList').on('mouseover', 'div>a>i', function () {
-        $(this).toggleClass('myRotate');
-        $(this).toggleClass('myZoom');
-      });
-      $('#qaList').on('mouseout', 'div>a>i', function () {
-        $(this).toggleClass('myRotate');
-        $(this).toggleClass('myZoom');
-      });
-    </script>
+      function onenews() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const newsId = urlParams.get('nid');
 
-    <!-- 讀取資料庫QA -->
-    <script>
-      function qa() {
         $.ajax({
-          url: '../php/qna.php',
+          url: '../php/news.php/onenews',
+          method: 'POST',
           contentType: 'application/json',
-        }).done(function (pika) {
-          let data = JSON.parse(pika);
-          console.log('data', data);
+          data: JSON.stringify({ nid: newsId }),
 
-          let insertedClasses = new Set();
-
-          data.forEach((element) => {
-            $('#temp').empty();
-
-            if (!insertedClasses.has(element.qClass)) {
-              $('#qaList').append(
-                `<h3 class="text-center my-3 font_C_Normal">${element.qClass}</h3>`
-              );
-              insertedClasses.add(element.qClass);
-            }
-
-            $('#qaList').append(
-              `<div class="mx-auto w-80">
-                <a class="lh-lg fs-5"><i class="fa-regular fa-comments"></i> ${element.question}</a>
-                <a
-                  class="clearfix"
-                  data-bs-toggle="collapse"
-                  href="#collapseQ${element.qid}"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="collapseQ${element.qid}">
-                  <i class="bi bi-patch-plus float-end"></i>
-                </a>
-                <div class="collapse" id="collapseQ${element.qid}">
-                <p class="px-3 pt-3 fs-5"><i class="fa-solid fa-bullhorn"></i> ${element.answer}</p>
-                </div>
-              </div>`
-            );
-          });
+          // success: function (data) {
+          //   console.log(data);
+          // },
+          error: function (error, a, b) {
+            console.log(b);
+          },
+        }).done(function (oneNews) {
+          $('#oneNews').append(
+            `<div class="d-flex flex-row mt-3">
+              <a class="text-center newsClass px-2 my-2" href="javascript:history.back()">${oneNews.nClass}</a>
+              <span class="ms-auto my-2">${oneNews.nDate}</span>
+              <br />
+            </div>
+            <h3 class="fw-normal py-2">${oneNews.nTitle}</h3>
+            <div class="d-flex flex-row">
+              <img src=${oneNews.nImage} class="w-100" />
+            </div>
+            <p class="qaLine w-100 pt-2 fs-5">${oneNews.nText}</p>
+            <pre class="w-100 myWrap fs-5">${oneNews.nContent}</pre>`
+          );
+          $('#temp').empty();
         });
       }
-      qa();
+      onenews();
     </script>
 
     <!-- cursor -->
     <script>
-      $('#collapseNews').on('mouseover', 'a.d-block', function () {
-        $(this).css('cursor', 'pointer');
-      });
+      $('#collapseNews, #oneNews').on(
+        'mouseover',
+        'a, div>a.newsClass',
+        function () {
+          $(this).css('cursor', 'pointer');
+        }
+      );
 
       $('#newsSidebar').hover(function () {
         $(this).css('cursor', 'pointer');

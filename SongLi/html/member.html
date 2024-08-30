@@ -2,34 +2,42 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>退換貨政策 | Song-Li</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>會員中心 | Song-Li</title>
   <!-- bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
-  <!-- font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&display=swap"
-    rel="stylesheet" />
   <!-- icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&display=swap"
+    rel="stylesheet">
   <!-- css -->
-  <link rel="stylesheet" href="../css/aboutNnews.css" />
-  <link rel="stylesheet" href="../css/cartIcon.css" />
-  <link rel="stylesheet" href="../css/navUD.css" />
+  <link rel="stylesheet" href="../css/memberStyle.css">
+  <link rel="stylesheet" href="../css/cartIcon.css">
+  <link rel="stylesheet" href="../css/navUD.css">
   <!-- jQ -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-</head>
+  <!-- js -->
+  <script src="../js/userData.js"></script>
+
+  <script src="../js/calendar.js"></script>
+  <!-- <script src="../js/order.js"></script> -->
+  <!-- React -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 
 <body>
   <header class="fixed-top">
@@ -39,7 +47,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 180px;">
             <li class="nav-item me-5 font_T_Bolder">
-              <a class="nav-link navli" href="./product/product.html">商品</a>
+              <a class="nav-link navli" href="./product.html">商品</a>
             </li>
             <li class="nav-item me-5 font_T_Bolder">
               <a class="nav-link navli" href="./news.html">公告</a>
@@ -55,12 +63,12 @@
             <h5 class="userName font_T_Bolder"></h5>
           </div>
           <div class="float-end navbtnSP">
-            <!-- <a href="../html/product/product.html#productList2" class="navbtn font_T_Bolder mx-2">訂閱</a>                        <button class="navbtn font_T_Bolder mx-2" id="loginRegBtn" data-bs-toggle="modal" -->
+            <!-- <a href="../html/product.html#productList2" class="navbtn font_T_Bolder mx-2">訂閱</a>                        <button class="navbtn font_T_Bolder mx-2" id="loginRegBtn" data-bs-toggle="modal" -->
             <button class="navbtn font_T_Bolder mx-2" id="loginRegBtn" data-bs-toggle="modal"
               data-bs-target="#exampleModal">登入/註冊</button>
           </div>
           <div class="icon-cart float-end position-relative">
-            <a href="./cart/cart.html" class="btn font_T_Bolder">
+            <a href="./cart.html" class="btn font_T_Bolder">
               <i class="bi bi-cart3 fs-2"></i>
               <span id="cartCount"></span>
             </a>
@@ -71,61 +79,145 @@
 
   </header>
 
-  <div class="d-flex flex-row container justify-content-around w-80 firstDiv">
-    <ul class="d-flex flex-column w-30 fs-5 font_T_Normal sidebar_bg">
-      <li class="list-unstyled">
-        <a class="py-3" href="./news.html">最新消息</a>
-        <i id="newsSidebar" class="bi bi-chevron-down float-end pe-5" data-bs-toggle="collapse" href="#collapseNews"
-          aria-expanded="false" aria-controls="collapseNews"></i>
-        <div class="collapse" id="collapseNews"></div>
-      </li>
 
-      <li class="list-unstyled">
-        <a class="d-block py-2" href="./qna.html">Q & A</a>
-      </li>
-
-      <li class="list-unstyled">
-        <a class="py-3" data-bs-toggle="collapse" href="#collapsePolicy" aria-expanded="false"
-          aria-controls="collapsePolicy">頌裏政策<i class="bi bi-chevron-down float-end pe-5"></i></a>
-        <div class="collapse" id="collapsePolicy">
-          <a class="d-block" href="./shippingPolicy.html"><i class="fa-solid fa-truck ps-3 pe-2 py-2"></i>運送政策</a>
-          <a class="d-block" href="./returnPolicy.html"><i class="fa-solid fa-repeat ps-3 pe-2 py-2"></i>退換貨政策</a>
-          <a class="d-block" href="./privacyPolicy.html"><i
-              class="fa-regular fa-address-card ps-3 pe-2 py-2"></i>隱私權政策</a>
+  <!-- row外面要包一層=>不然會凸出去 -->
+  <div class="container firstDiv">
+    <div class="row">
+      <!-- sidebar側邊攔的按鈕 -->
+      <div class="col-4">
+        <div class="tab">
+          <button class="tablinks font_T_Bolder"><img src="../image/job-2.png" alt="">基本資料</button>
+          <button class="tablinks font_T_Bolder"><img src="../image/flower-1.png" alt="">預約日期</button>
+          <button class="tablinks font_T_Bolder"><img src="../image/truck-2.png" alt="">訂單查詢</button>
         </div>
-      </li>
-    </ul>
+      </div>
+      <div class="col-8">
+        <!-- 會員資料的頁 -->
+        <div id="memberInformation" class="tabcontent active">
 
-    <div class="d-flex flex-column w-70 text-start font_C_Light mt-3 px-4 pt-1">
-      <div class="h3 text-center text-decoration-underline font_T_Normal mt-3 pt-1">
-        退換貨政策
+          <h3 class="font_T_Bold">會員資料<img src="../image/標題-2.png"></h3>
+
+          <hr>
+          <div id="memberData" class="font_T_Normal">
+            <!-- 會員資料(抓資料庫) -->
+            <form action="../php/member.php" method="post" enctype="multipart/form-data">
+              <label for="" class="mlabel-1">姓名</label><input type="text" placeholder="姓名" name="mName" id="mName"><br>
+              <label for="" class="mlabel-1">生日</label><span id="mBirthday"></span><br>
+              <label for="" class="mlabel-1">性別</label><span id="mGender"></span><br>
+              <label for="" class="mlabel-1">帳號</label><span id="mAccount"></span><br>
+              <label for="" class="mlabel-2">電子信箱</label><input type="email" placeholder="電子郵件地址" name="mEmail"
+                id="mEmail"><br>
+              <label for="" class="mlabel-3">※開啟提醒</label>
+              <input type="radio" name="choice" class="mlabel-4" id="mChoiceYes" value="是">是
+              <input type="radio" name="choice" class="mlabel-4" id="mChoiceNo" value="否">否<br>
+              <label for="" class="mlabel-2">手機號碼</label><input type="tel" placeholder="電話" name="mTel" id="mTel"><br>
+              <!-- 更新按鈕，將會員更改的資料存進資料庫 -->
+              <input type="submit" id="mupdata" class="calendarbtn float-end" value="更新">
+            </form>
+          </div>
+        </div>
+        <!-- 預約訂單的頁 -->
+        <div id="dateInformation" class="tabcontent ">
+          <h3 class="font_T_Bold">預約日期<img src="../image/標題-2.png"></h3>
+          <hr>
+          <div class="row">
+            <div class="col-7">
+              <!-- 月曆 -->
+              <div class="calendar font_C_Light">
+                <!-- 年、月和往前往後的按鈕 -->
+                <div id="myearmonth">
+                  <!-- 往前按鈕 -->
+                  <button class="left myearmonthbtn-1 calendarbtn"><i class="fa-solid fa-chevron-left"></i></button>
+                  <p>
+                  <div class="year"></div>年</p>
+                  <p>
+                  <div class="month"></div>月</p>
+                  <!-- 往後按鈕 -->
+                  <button class="right myearmonthbtn-2 calendarbtn"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <!-- 裝日期的table -->
+                <table id="calendarDate" class="table-bordered table align-middle ">
+                  <!-- 星期幾 -->
+                  <thead class="weekDay">
+                    <tr class="ordertr calendarth">
+                      <th>日</th>
+                      <th>一</th>
+                      <th>二</th>
+                      <th>三</th>
+                      <th>四</th>
+                      <th>五</th>
+                      <th>六</th>
+                    </tr>
+                  </thead>
+                  <!-- 日期 -->
+                  <tbody class="days "></tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col-5">
+              <!-- 新增的條列行事曆 -->
+              <div id="eventList">
+                <h3 class="font_T_Bolder">預約的提醒</h3>
+                <!-- 從資料庫抓出來的ul、li -->
+                <ul id="FromDB"></ul>
+                <!-- 網頁新增的li(會進資料庫) -->
+                <ul id="addEventList" class="addEventList"></ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- 訂單查詢的頁 -->
+        <div id="orderInformation" class="tabcontent">
+          <h3 class="font_T_Bold">訂單查詢<img src="../image/標題-2.png"></h3>
+          <hr>
+          <!-- 資料庫抓出來的所有訂單 -->
+          <div class="order-container">
+            <!-- 訂單的樣式 -->
+            <!-- <table class=" table-bordered table font_C_Light">
+                <tr class="ordertr">
+                  <th colspan="2">訂單編號 <span id="orderId">#001</span></th>
+                </tr>
+                <tr>
+                  <th>商品名稱</th>
+                  <td id="uProduct">花花</td>
+                </tr>
+                <tr>
+                  <th>商品數量</th>
+                  <td id="uAmount">2</td>
+
+                </tr>
+                <tr>
+                  <th>訂單狀態</th>
+                  <td id="uState">備貨中，預計3日內出貨</td>
+                </tr>
+              </table> -->
+
+          </div>
+        </div>
       </div>
-      <div class="my-2 font_C_Light fs-5">
-        <h5>商品鑑賞期</h5>
-        <p>
-          本服務作品屬於客製商品，非屬定型化商品或大量生產所取得之販售型商品，故不適用網路購物七天鑑賞期間之退貨規範。<br />
-          <br />
-          消費者保護法第19條規定，茲摘錄其內容如下：「企業經營者將以前類似商品之圖片刊載於型錄、報紙、雜誌等，使消費者產生購買之動機，進而要求企業經營者比照該圖片為其特別訂製，即非屬郵購買賣，無消保法第十九條任意解約規定之適用。」<br />
-          <br />
-          客服信箱：bigzhuan0711@gmail.com<br />
-          客服專線：04-23265860<br />
-        </p>
-        <br />
-        <h5>退換貨須知</h5>
-        <p>
-          確認下單付款後不接受任何退款與換花服務，請在付款前務必確認好您的作品尺寸、規格、顏色，如下錯訂單切勿付款，直接另外下單即可。<br />
-          花卉屬於消耗性商品，不提供退貨與換貨服務<br />
-        </p>
-        <br />
-        <h5>備註</h5>
-        <p>
-          ．花卉是屬於季節性，植物會隨著氣候與季節的不同而有所差異，我們的花藝師在設計花禮時會重複確認花束的色彩與花材，會維持最接近花束照片的樣式設計，如遇花材短缺，會幫您配上同色系並等值的花材。<br />
-        </p>
-        <br /><br />
-      </div>
+
     </div>
+
+
+    <!-- 跳出來的送禮備註框 -->
+    <form id="controls" method="post">
+      <div id="controlss">
+        <span class="close " id="xx">&times;</span>
+        <input type="text" id="whoInput" placeholder="送禮備註欄"><br>
+        <input type="submit" id="addWhoBtn" class="calendarbtn" value="加入">
+      </div>
+    </form>
+
+
+  </div>
   </div>
 
+  <!-- 不夠長所以拉一點 -->
+  <br><br><br><br><br><br><br><br><br>
+
+
+  <!-- 這裡是footer -->
   <footer class="container-fluid clearfix">
     <div class="footerDown justify-content-evenly">
       <div class="float-start">
@@ -160,7 +252,7 @@
 
   </footer>
 
-  <!-- login&register -->
+  <!-- login&register *會員中心只會有登出* 會員中心的要先登入後才會進=>所以之後有判斷 -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content active">
@@ -241,52 +333,30 @@
   </div>
   <!-- 購物車顯示 -->
   <script src="../js/showCart.js"></script>
-
   <!-- 登入畫面控制 -->
   <script src="../js/login.js"></script>
 
-  <!-- cursor -->
+  <!-- 側邊欄按鈕 -->
   <script>
-    $('#collapseNews').on('mouseover', 'a.d-block', function () {
-      $(this).css('cursor', 'pointer');
-    });
-
-    $('#newsSidebar').hover(function () {
-      $(this).css('cursor', 'pointer');
-    });
+    $('.tablinks').on('click', function () {
+      // console.log($(this).index()) 
+      $('.tabcontent').removeClass('active');
+      $('.tabcontent').eq($(this).index()).addClass('active');
+    })
+  </script>
+  <!-- 點擊月曆的動作 -->
+  <script>
+    $('li').on('click', function () {
+      $('.calendar').removeClass('active')
+      $('.calendar').eq($(this).index()).addClass('active')
+    })
   </script>
 
-  <!-- sidebar分類名稱 -->
-  <script>
-    $('#newsSidebar').on('click', function () {
-      $.ajax({
-        url: '../php/news.php/news',
-        contentType: 'application/json',
-      }).done(function (temp) {
-        console.log('temp', temp);
+  <!-- 新增行程的js(react) -->
+  <script type="text/babel" src="../js/calendar_react.js"></script>
 
-        let insertedCategory = new Set();
-        $('#collapseNews').empty();
-        temp.forEach((element) => {
-          if (!insertedCategory.has(element.nClass)) {
-            $('#collapseNews').append(
-              `<a class="d-block" data-class=${element.nClass} href="./news.html">
-                  <i class="fa-solid fa-feather ps-3 pe-2 py-2"></i>${element.nClass}
-                </a>`
-            );
-            insertedCategory.add(element.nClass);
-          }
-        });
-      });
-    });
-  </script>
 
-  <!-- sidebar分類內容清單 -->
-  <script>
-    $('#collapseNews').on('click', 'a.d-block', function newsPost() {
-      sessionStorage.setItem('nClass', $(this).attr('data-class'));
-    });
-  </script>
+
 </body>
 
 </html>
